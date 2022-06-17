@@ -3,25 +3,27 @@
     <head>
         <title>Generative VS Discriminative ML models</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="./impress-common.css" rel="stylesheet" />
-        <link href="./presentation.css" rel="stylesheet" />
+        <link href="./css/impress-common.css" rel="stylesheet" />
+        <link href="./css/presentation.css" rel="stylesheet" />
     </head>
     <body>
-        <div id="impress" data-transition-duration="1000">
+        <div id="impress" data-transition-duration="500">
+            <div id="background" class="step skip" data-x="3000" data-y="3000" data-z="-500" data-scale="20">
+                <img src="images/background.jpeg"/>
+            </div>
 
             <div id="overview" class="step" data-x="3000" data-y="2000" data-scale="9">
                 <h1>
-                    Discriminative VS Generative<br/>
-                    Neural ML-models
+                    Generative Deep Neural Models
                 </h1>
             </div>
 
             <div id="contents" class="step" data-x="0" data-y="1000">
                 <h1>Agenda</h1>
                 <ul>
-                    <li>Discriminative/Generative models</li>
+                    <li>Discriminative VS Generative models</li>
                     <ul>
-                        <li>Definitions/Examples</li>
+                        <li>Definitions / Examples</li>
                         <li>Classification performance comparison</li>
                     </ul>
                     <li>Some deep generative models</li>
@@ -33,22 +35,46 @@
                     </ul>
                     <li>New Generative opportunities</li>
                     <ul>
-                        <li>The manifold hypothesis/embedding space</li>
-                        <li>Manipulation of high-level features</li>
-                        <li>Manipulation of style</li>
-                        <li>Generating missing information</li>
-                        <li>Generating brand-new data</li>
+                        <li>The manifold hypothesis / embedding space</li>
+                        <li>Manipulation of high-level features / style</li>
+                        <li>Generating missing information / brand-new data</li>
                     </ul>
                     <li>Conclusions</li>
                 </ul>
             </div>
 
             <div class="step" data-rel-x="1000" data-rel-y="0">
-                Slide 1
+                <h1>Discriminative models</h1>
+                <p>
+                    Given some pairs $\mathcal{XY}=\{(x_i,y_i)\}$... what about learning:
+                    $$f:\mathcal{X}\to\mathcal{Y} = f(x) = \arg\max_yp(y|x)$$
+                </p>
+                <img src="images/discriminative.png" width="500"/>
+                <did>Maximum posterior approach.</did>
             </div>
 
             <div class="step" data-rel-x="1000" data-rel-y="0">
-                Slide 2
+                <h1>Generative models</h1>
+                <p>
+                    What about learning the per-class conditional distributions?
+                    $$f:\mathcal{X}\to\mathcal{Y} = f(x) = \arg\max_yp(x|y)$$
+                </p>
+                <img src="images/generative.png" width="500"/>
+                <did>Maximum likelihood approach.</did>
+            </div>
+
+            <div class="step" data-rel-x="1000" data-rel-y="0">
+                <h1>Discriminative VS Generative</h1>
+                <h2>Partition VS fit<h2>
+                <img src="images/discriminative_VS_generative.png" width="900"/>
+            </div>
+
+            <div class="step" data-rel-x="1000" data-rel-y="0">
+                <h1>Slide 2</h1>
+            </div>
+
+            <div class="step" data-x="7000" data-y="5000">
+                Last slide
             </div>
 
         </div>
@@ -57,7 +83,22 @@
         <div class="impress-progressbar"><div></div></div>
         <div class="impress-progress"></div>
 
-        <script type="text/javascript" src="./impress.js"></script>
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+          tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+          },
+          TeX: {
+            Macros: {
+              energy: "e",
+              eqby: ["\\stackrel{#1}{=}",1],
+            }
+          }
+          });
+        </script>
+        <script type="text/javascript" src="js/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/javascript" src="js/impress.js"></script>
+
         <script>impress().init();</script>
     </body>
 </html>

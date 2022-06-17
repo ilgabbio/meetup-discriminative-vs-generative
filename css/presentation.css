@@ -2,7 +2,7 @@ body {
     font-family: 'PT Sans', sans-serif;
     min-height: 740px;
 
-    background: #112233;
+    background: #000000;
     color: #facfac;
 }
 
@@ -13,7 +13,6 @@ body {
     width: 900px;
     height: 700px;
     margin: 20px auto;
-    /* padding: 40px 60px; */
 
     text-shadow: 0 2px 2px rgba(0, 10, 0, .5);
 
@@ -25,7 +24,7 @@ body {
 .impress-enabled .step {
     opacity: 0.1;
     margin: 50px;
-    transition: opacity 1s, margin 1s;
+    transition: opacity 2s, margin 2s;
 }
 
 .impress-enabled .step.active {
@@ -33,8 +32,35 @@ body {
     margin: 0;
 }
 
-h1,h2,h3 {
+#background {
+    opacity: 0.3;
+}
+
+img {
+    display: block;
+    margin: 0 auto;
+}
+
+h1,h2,h3,did {
     text-align: center;
+    color: #ffffff;
+}
+
+h1,h2,h3,ul {
     margin-bottom: 0.5em;
     margin-top: 0;
 }
+
+did {
+    display: block;
+    margin: 0 auto;
+    font-size: 24px;
+}
+
+tab, dtab, tgtab, qtab, ptab { display: inline-block; }
+tab { margin: 0 0 0 50px; }
+dtab { margin: 0 0 0 100px; }
+ttab { margin: 0 0 0 150px; }
+qtab { margin: 0 0 0 200px; }
+tab { margin: 0 0 0 250px; }
+
