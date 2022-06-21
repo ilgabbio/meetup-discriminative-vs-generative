@@ -22,8 +22,8 @@ body {
 }
 
 .impress-enabled .step {
-    opacity: 0.1;
-    margin: 50px;
+    opacity: 1.1;
+    /* margin: 50px; */
     transition: opacity 2s, margin 2s;
 }
 
@@ -62,5 +62,8 @@ tab { margin: 0 0 0 50px; }
 dtab { margin: 0 0 0 100px; }
 ttab { margin: 0 0 0 150px; }
 qtab { margin: 0 0 0 200px; }
-tab { margin: 0 0 0 250px; }
+ptab { margin: 0 0 0 250px; }
 
+a {
+    color: red;
+}

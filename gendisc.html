@@ -8,34 +8,34 @@
     </head>
     <body>
         <div id="impress" data-transition-duration="500">
-            <div id="background" class="step skip" data-x="3000" data-y="3000" data-z="-500" data-scale="20">
+            <div id="background" class="step skip" data-x="15000" data-y="3000" data-z="-500" data-scale="30">
                 <img src="images/background.jpeg"/>
             </div>
 
-            <div id="overview" class="step" data-x="3000" data-y="2000" data-scale="9">
+            <div id="Overview" class="step" data-x="15000" data-y="2000" data-scale="20">
                 <h1>
                     Generative Deep Neural Models
                 </h1>
             </div>
 
-            <div id="contents" class="step" data-x="0" data-y="1000">
+            <div id="Agenda" class="step" data-x="5000" data-y="-4200">
                 <h1>Agenda</h1>
                 <ul>
                     <li>Discriminative VS Generative models</li>
                     <ul>
-                        <li>Definitions / Examples</li>
-                        <li>Classification performance comparison</li>
+                        <li>Definition</li>
+                        <li>Embedding-space / manifold hypothesis</li>
                     </ul>
-                    <li>Some deep generative models</li>
+                    <li>Generative approaches</li>
                     <ul>
                         <li>Variational Autoencoders</li>
                         <li>Normalizing Flows</li>
                         <li>Diffusion Models</li>
                         <li>Generative Adversarial Networks</li>
                     </ul>
+                    <li>Performances</li>
                     <li>New Generative opportunities</li>
                     <ul>
-                        <li>The manifold hypothesis / embedding space</li>
                         <li>Manipulation of high-level features / style</li>
                         <li>Generating missing information / brand-new data</li>
                     </ul>
@@ -43,37 +43,118 @@
                 </ul>
             </div>
 
-            <div class="step" data-rel-x="1000" data-rel-y="0">
+            <!-- Definition -->
+
+            <div id="Discriminative" class="step" data-x="4000" data-y="-2000">
                 <h1>Discriminative models</h1>
-                <p>
+                <center>
                     Given some pairs $\mathcal{XY}=\{(x_i,y_i)\}$... what about learning:
                     $$f:\mathcal{X}\to\mathcal{Y} = f(x) = \arg\max_yp(y|x)$$
-                </p>
+                </center>
                 <img src="images/discriminative.png" width="500"/>
                 <did>Maximum posterior approach.</did>
             </div>
 
-            <div class="step" data-rel-x="1000" data-rel-y="0">
+            <div id="Generative" class="step" data-rel-x="1000" data-rel-y="0">
                 <h1>Generative models</h1>
-                <p>
+                <center>
                     What about learning the per-class conditional distributions?
                     $$f:\mathcal{X}\to\mathcal{Y} = f(x) = \arg\max_yp(x|y)$$
-                </p>
+                </center>
                 <img src="images/generative.png" width="500"/>
                 <did>Maximum likelihood approach.</did>
             </div>
 
-            <div class="step" data-rel-x="1000" data-rel-y="0">
+            <div id="Disc-VS-Gen" class="step" data-rel-x="-500" data-rel-y="400" data-scale="0.5">
                 <h1>Discriminative VS Generative</h1>
-                <h2>Partition VS fit<h2>
                 <img src="images/discriminative_VS_generative.png" width="900"/>
+                <h2>Partition VS fit<h2>
             </div>
 
-            <div class="step" data-rel-x="1000" data-rel-y="0">
-                <h1>Slide 2</h1>
+            <!-- Embedding / manifold -->
+
+            <div id="Manifold" class="step" data-rel-x="0" data-rel-y="600">
+                <h1>Manifold hypothesis</h1>
+                <img src="images/manifold.svg" width="900"/>
+                <did>Samples lie on a lower dimensional manifold wrt the data space.</did>
             </div>
 
-            <div class="step" data-x="7000" data-y="5000">
+            <div id="Embedding" class="step" data-rel-x="1000" data-rel-y="0">
+                <h1>Embedding space</h1>
+                <img src="images/MNIST-tSNE.pbm" width="500"/>
+                <did>
+                    Samples can be mapped (from the manifold)<br/>
+                    on a lower-dimensional (embedding) space<br/>
+                    keeping (and disentangling) the latent characteristics.
+                </did>
+            </div>
+
+            <!-- Approaches --> 
+
+            <div id="Generative-approaches" class="step" data-rel-x="1000" data-rel-y="0">
+                <h1>Generative approaches</h1>
+                <img src="images/approaches.svg" width="900"/>
+                <did>Complex distributions are mapped on simpler ones.</did>
+            </div>
+
+            <div id="VAE" class="step" data-rel-x="1000" data-rel-y="800" data-rotate-z="45">
+                <h1>Variational Auto-Encoders</h1>
+                <img src="images/VAE.svg" width="700"/>
+                <did>$$\log p(x) \ge \mathcal{L}(x) = \mathbb{E}_{q(x|z)}\log p(x|z) - KL(q(z|x)||p(z))$$</did>
+            </div>
+
+            <div id="NF" class="step" data-rel-x="0" data-rel-y="1500" data-rotate-z="135">
+                <h1>Normalizing Flows</h1>
+                <p>
+                    Being $\{f_i\}_{i=1}^n \ni f_i: \mathcal{Z}_i\in\Re^d \to \mathcal{Z}_{i+1}\Re^d$ diffeomorphisms:
+                    $$p_{\mathcal{Z}_i}(z_i)=p_{\mathcal{Z}_{i+1}}(f_i(z_i))|\det Jf_i(z_i)|$$
+                </p>
+                <a href="images/flow.gif" target="_blank">
+                    <img src="images/nf_deform.png" width="350"/>
+                </a>
+                <p style="margin-top: 0;">
+                    <img src="images/x.svg" width="100" style="display: inline-block; margin: 0;"/>
+                    <span style="width: 70%; display: inline-block; margin: 0 10px;">
+                        $$x = z_0 \rightarrow f_1(z_0) = z_1 \rightarrow \cdots \rightarrow f_n(z_{n-1}) = z_n$$
+                        $$x = z_0 = f_1^{-1}(z_1) \leftarrow \cdots \leftarrow z_{n-1} = f_n^{-1}(z_n)$$
+                    </span>
+                    <img src="images/z.svg" width="100" style="display: inline-block; margin: 0;"/>
+                </p>
+            </div>
+
+            <div id="DDPM" class="step" data-rel-x="-1500" data-rel-y="0" data-rotate-z="225">
+                <h1>Denoising Diffusion Probabilistic Models</h1>
+                <img src="images/diffusion_model.png" width="800"/>
+                <img src="images/DDPM.png" width="800"/>
+                <did>Reaching the normal distribution via <a href="images/diffusion.gif" target="_blank">Brownian motion</a>.</did>
+            </div>
+
+            <div id="GAN" class="step" data-rel-x="0" data-rel-y="-1500" data-rotate-z="315">
+                <h1>Generative Adversarial Networks</h1>
+                <p>
+                    Train just the generator part $G$...<br/>
+                    <ptab/>...using a fancy loss function with a classifier $D$.
+                </p>
+                <p>
+                    <img src="images/GAN_G.svg" width="400" style="display: inline-block; vertical-align: middle;"/>
+                    <span style="display: inline-block;">
+                    $$\small
+                    \begin{eqnarray}
+                        \mathcal{V}(G,D)&=&\min_G\max_D 
+                        \mathbb{E}_x\left[\log D(x)\right] \\
+                        &+& \mathbb[E]_z\left[\log(1-D(G(z)))\right]
+                    \end{eqnarray}
+                    $$
+                    </span>
+                </p>
+
+            </div>
+
+            <div class="step" data-rel-x="3000" data-rel-y="0" data-rotate-z="360">
+                <h1>BLA BLA</h1>
+            </div>
+
+            <div class="step" data-x="27000" data-y="8000">
                 Last slide
             </div>
 

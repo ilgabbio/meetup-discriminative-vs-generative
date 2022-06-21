@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="23.778095mm"
+   height="25.593676mm"
+   viewBox="0 0 23.778095 25.593676"
+   version="1.1"
+   id="svg13792"
+   inkscape:version="1.2 (dc2aeda, 2022-05-15)"
+   sodipodi:docname="x.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview13794"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.77814416"
+     inkscape:cx="97.025723"
+     inkscape:cy="120.80024"
+     inkscape:window-width="1309"
+     inkscape:window-height="456"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs13789" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-60.941744,-63.256427)">
+    <g
+       id="g17656"
+       transform="translate(-30.987093,8.2253924)">
+      <path
+         style="fill:none;fill-opacity:1;stroke:#de0000;stroke-width:0.4;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+         d="m 98.123054,69.152982 c -9.31244,-4.864704 -6.6716,-8.061509 0.41697,-6.254619 7.088566,1.80689 -6.25462,-8.200501 2.640836,-7.644535 8.89546,0.555967 -1.806886,8.339493 4.30874,13.621171 6.11563,5.28168 6.81059,-14.177137 9.45143,-9.451425 2.64083,4.725713 -4.86471,5.976637 -3.19681,11.536298 1.6679,5.559663 5.97664,9.729409 -3.75277,9.451425 -9.729406,-0.277982 3.47479,-8.478484 -2.77983,-6.810584 -6.254616,1.667896 -8.061506,5.003694 -10.563356,2.918822 -2.50185,-2.084874 4.03075,-5.420671 3.47479,-7.366553 z"
+         id="path14543-9" />
+      <text
+         xml:space="preserve"
+         style="font-size:3.175px;fill:none;fill-opacity:1;stroke:#de0000;stroke-width:0.4;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+         x="101.87583"
+         y="71.515839"
+         id="text16262-5"><tspan
+           sodipodi:role="line"
+           id="tspan16260-1"
+           style="stroke-width:0.4"
+           x="101.87583"
+           y="71.515839">X</tspan></text>
+    </g>
+  </g>
+</svg>
