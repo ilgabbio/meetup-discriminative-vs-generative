@@ -32,7 +32,7 @@ body {
     margin: 0;
 }
 
-#background {
+div.step.background {
     opacity: 0.3;
 }
 
@@ -57,6 +57,13 @@ did {
     font-size: 24px;
 }
 
+cit {
+    display: block;
+    margin: 5px 40px;
+    font-size: 18px;
+    font-style: italic;
+}
+
 tab, dtab, tgtab, qtab, ptab { display: inline-block; }
 tab { margin: 0 0 0 50px; }
 dtab { margin: 0 0 0 100px; }
@@ -65,5 +72,5 @@ qtab { margin: 0 0 0 200px; }
 ptab { margin: 0 0 0 250px; }
 
 a {
-    color: red;
+    color: lightblue;
 }
