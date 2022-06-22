@@ -46,7 +46,7 @@ h1,h2,h3,did {
     color: #ffffff;
 }
 
-h1,h2,h3,ul {
+h1,h2,h3,ul,dd {
     margin-bottom: 0.5em;
     margin-top: 0;
 }
@@ -59,9 +59,11 @@ did {
 
 cit {
     display: block;
-    margin: 5px 40px;
-    font-size: 18px;
+    margin: 5px 20px;
+    font-size: 16px;
     font-style: italic;
+    font-family: monospace;
+    white-space: pre-line;
 }
 
 tab, dtab, tgtab, qtab, ptab { display: inline-block; }

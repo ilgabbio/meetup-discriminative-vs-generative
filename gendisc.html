@@ -38,7 +38,7 @@
 
             <!-- Definition -->
 
-            <div id="Discriminative" class="step" data-x="4000" data-y="-2000">
+            <div id="Discriminative" class="step" data-x="7000" data-y="000">
                 <h1>Discriminative models</h1>
                 <center>
                     Given some pairs $\mathcal{XY}=\{(x_i,y_i)\}$... what about learning:
@@ -90,7 +90,7 @@
                 <did>Complex distributions are mapped on simpler ones.</did>
             </div>
 
-            <div id="VAE" class="step" data-rel-x="1000" data-rel-y="1000" data-rotate-z="45">
+            <div id="VAE" class="step" data-rel-x="1500" data-rel-y="1500" data-rotate-z="45">
                 <h1>Variational Auto-Encoders</h1>
                 <img src="images/VAE.svg" width="800"/>
                 <did>$$\log p(x) \ge \mathcal{L}(x) = \mathbb{E}_{q(x|z)}\log p(x|z) - KL(q(z|x)||p(z))$$</did>
@@ -146,7 +146,9 @@
                 </p>
             </div>
 
-            <div id="Classificaiton-performances" class="step" data-rel-x="3000" data-rel-y="0" data-rotate-z="360">
+            <!-- Evaluation -->
+
+            <div id="Classificaiton-performances" class="step" data-rel-x="3500" data-rel-y="-2000" data-rotate-z="360">
                 <h1>Classification performances</h1>
                 <p>
                     Samples complexity to reach the asymptotic error...<br/>
@@ -159,12 +161,9 @@
                 <img src="images/class-perf.png" width="900"/>
                 <center>BUT</center>
                 $$\epsilon(h_{Dis,\infty}) \lt \epsilon(h_{Gen,\infty})$$
-                <cit>
-                    <a href="https://ai.stanford.edu/~ang/papers/nips01-discriminativegenerative.pdf">
-                        "On Discriminative vs. Generative Classifiers: A comparison of logistic regression and naive Bayes", 
-                        Andrew Y. Ng, Michael I. Jordan
-                    </a>
-                </cit>
+                <a href="https://ai.stanford.edu/~ang/papers/nips01-discriminativegenerative.pdf">
+                    <cit>"On Discriminative vs. Generative Classifiers: A comparison of logistic regression and naive Bayes", Andrew Y. Ng, Michael I. Jordan</cit>
+                </a>
             </div>
 
             <div id="Generation-quality" class="step" data-rel-x="1000" data-rel-y="-1000" data-rotate-z="270">
@@ -180,11 +179,9 @@
                     <dd>Do not work only with images: consider videos, text, audio, ...</dd>
                 </dl>
                 <img src="images/PPL.png" width="700"/>
-                <cit>
-                    <a href="https://arxiv.org/pdf/2103.09396.pdf">
-                        "Pros and Cons of GAN Evaluation Measures: New Developments", Ali Borji
-                    </a>
-                </cit>
+                <a href="https://arxiv.org/pdf/2103.09396.pdf">
+                    <cit>"Pros and Cons of GAN Evaluation Measures: New Developments", Ali Borji</cit>
+                </a>
             </div>
 
             <div id="Distribution-adherence" class="step" data-rel-x="-1000" data-rel-y="-1000" data-rotate-z="180">
@@ -199,11 +196,9 @@
                     <dd>Generated samples lie outside the data manifold (eg. interpolation).</dd>
                 </dl>
                 <img src="images/prerec.png" width="900"/>
-                <cit>
-                    <a href="https://arxiv.org/pdf/2103.09396.pdf">
-                        "Pros and Cons of GAN Evaluation Measures: New Developments", Ali Borji
-                    </a>
-                </cit>
+                <a href="https://arxiv.org/pdf/2103.09396.pdf">
+                    <cit>"Pros and Cons of GAN Evaluation Measures: New Developments", Ali Borji</cit>
+                </a>
             </div>
 
             <div id="Embedding-quality" class="step" data-rel-x="-1000" data-rel-y="1000" data-rotate-z="90">
@@ -218,20 +213,146 @@
                     <dd>Latent variables change different characteristics of data.</dd>
                 </dl>
                 <img src="images/emotions.png" width="800"/>
-                <cit>
-                    <a href="https://deepgenerativemodels.github.io/assets/slides/cs236_lecture15.pdf">
-                        "Deep generative models", Standford, 2021, CS236 - Lecture 15, Stefano Ermon, Yang Song
-                    </a>
-                </cit>
-                <cit>
-                    <a href="https://arxiv.org/pdf/2205.06102v1.pdf">
-                        "Tensor-based Emotion Editing in the StyleGAN Latent Space", Rene Haas, Stella Graßhof, and Sami S. Brandt
-                    </a>
-                </cit>
+                <a href="https://deepgenerativemodels.github.io/assets/slides/cs236_lecture15.pdf">
+                    <cit>"Deep generative models", Standford, 2021, CS236 - Lecture 15, Stefano Ermon, Yang Song</cit>
+                </a>
+                <a href="https://arxiv.org/pdf/2205.06102v1.pdf">
+                    <cit>"Tensor-based Emotion Editing in the StyleGAN Latent Space", Rene Haas, Stella Graßhof, and Sami S. Brandt</cit>
+                </a>
             </div>
 
-            <div class="step" data-x="27000" data-y="8000">
-                Last slide
+            <div id="Applications01" class="step" data-rel-x="500" data-rel-y="2500" data-rotate-z="45">
+                <h1>A new world of applications</h1>
+                <dl>
+                    <dt>Capturing the distribution of data:</dt>
+                    <dd>
+                        sample
+                        <span style="display: inline-block; vertical-align: middle;">
+                            <img src="images/manga.png" width="200"/>
+                        </span>
+                        <tab/>
+                        project
+                        <span style="display: inline-block; vertical-align: middle;">
+                            <img src="images/gab.png" width="200"/>
+                        </span>
+                        <span style="display: inline-block; vertical-align: middle;">
+                            <img src="images/gab_proj.png" width="200"/>
+                        </span>
+                    </dd>
+                    
+                    <dt>Detecting outliers/anomalies:</dt>
+                    <dd>
+                        <img src="images/AnoVAE.png" width="900"/>
+                        <cit>"Autoencoders for Unsupervised Anomaly Segmentation in Brain MR Images: A Comparative Study",
+                             Christoph Baur, Stefan Denner, Benedikt Wiestler, Shadi Albarqouni and Nassir Navab</cit>
+                    </dd>
+                </dl>
+            </div>
+
+            <div id="Applications02" class="step" data-rel-x="1500" data-rel-y="0" data-rotate-z="45">
+                <h1>A new world of applications</h1>
+                <dl>
+                    <dt>Latent-space feature editing:</dt>
+                    <dd>
+                        <img src="images/InterFaceGAN.png" width="900"/>
+                        <cit>"Interpreting the Latent Space of GANs for Semantic Face Editing",
+                             Yujun Shen, Jinjin Gu, Xiaoou Tang, Bolei Zhou</cit>
+                    </dd>
+                </dl>
+            </div>
+
+            <div id="Applications03" class="step" data-rel-x="1500" data-rel-y="0" data-rotate-z="45">
+                <h1>A new world of applications</h1>
+                <dl>
+                    <dt>Image transformation via conditional generation:</dt>
+                    <dd>
+                        <img src="images/pix2pix.jpeg" width="900"/>
+                        <cit>"Image-to-Image Translation with Conditional Adversarial Nets",
+                             Phillip Isola, Jun-Yan Zhu, Tinghui Zhou, Alexei A. Efros</cit>
+                    </dd>
+                </dl>
+            </div>
+
+            <div id="Applications04" class="step" data-rel-x="1500" data-rel-y="0" data-rotate-z="45">
+                <h1>A new world of applications</h1>
+                <dl>
+                    <dt>Aerial images semantic segmentation:</dt>
+                    <dd>
+                        <img src="images/pix2pix_semseg_aerial.png" height="200"/>
+                        <a href="https://github.com/A2Amir/Pix2Pix-for-Semantic-Segmentation-of-Satellite-Images">
+                            <cit>"What Is Pix2Pix and How To Use It for Semantic Segmentation of Satellite Images?"</cit>
+                        </a>
+                    </dd>
+
+                    <dt>Cell membrane and nucleus semantic segmentation:</dt>
+                    <dd>
+                        <img src="images/pix2pix_semseg_cell.png" width="900"/>
+                        <cit>"Cell Image Segmentation by Integrating Pix2pixs for Each Class",
+                             Hiroki Tsuda and Kazuhiro Hotta</cit>
+                    </dd>
+                </dl>
+            </div>
+
+            <div id="Applications05" class="step" data-rel-x="-1500" data-rel-y="1500" data-rotate-z="45">
+                <h1>A new world of applications</h1>
+                <dl>
+                    <dt>Domain adaptation</dt>
+                    <dd>
+                        <img src="images/AttentionGAN.png" width="800"/>
+                        <a href="https://arxiv.org/pdf/1911.11897.pdf">
+                            <cit>"AttentionGAN: Unpaired Image-to-Image Translation using Attention-Guided Generative Adversarial Networks", Hao Tang, Hong Liu, Dan Xu, Philip H.S. Torr, and Nicu Sebe</cit>
+                        </a>
+                    </dd>
+                </dl>
+            </div>
+
+            <div id="Applications06" class="step" data-rel-x="-1500" data-rel-y="1500" data-rotate-z="45">
+                <h2 style="margin: 0 0;">Text-to-images short story</h2>
+                <div id="LastSupper" style="width: 70%; margin: 0 auto; overflow-x: scroll;">
+                    <a href="images/LastSupper.jpeg" target="_blank">
+                        <img src="images/LastSupper.jpeg" height="320"/>
+                    </a>
+                </div>
+                <script>
+                    function adjustLastSupper() { 
+                        var elem = document.getElementById("LastSupper");
+                        var elemWidth = elem.scrollWidth;
+                        var elemVisibleWidth = elem.offsetWidth;
+                        elem.scrollLeft = (elemWidth - elemVisibleWidth) * 28 / 50;
+                    }
+                </script>
+                <a href="https://mobile.twitter.com/gabe_ragland/status/1539005324983578624/photo/1">
+                    <did>@Dalle2 Pics, Twitter</did>
+                </a>
+                <dl>
+                    <dt>DALL-E (Autoregressive Model)</dt>
+                    <dd>
+                        <a href="https://arxiv.org/pdf/2102.12092.pdf">
+                            <cit>"Zero-Shot Text-to-Image Generation"</cit>
+                        </a>
+                    </dd>
+
+                    <dt>GLIDE (Diffusion Model)</dt>
+                    <dd>
+                        <a href="https://arxiv.org/pdf/2112.10741.pdf">
+                            <cit>"GLIDE: Towards Photorealistic Image Generation and Editing with Text-Guided Diffusion Models"</cit>
+                        </a>
+                    </dd>
+
+                    <dt>DALL-E 2 (Diffusion Model)</dt>
+                    <dd>
+                        <a href="https://cdn.openai.com/papers/dall-e-2.pdf">
+                            <cit>"Hierarchical Text-Conditional Image Generation with CLIP Latents"</cit>
+                        </a>
+                    </dd>
+                    
+                    <dt>Imagen (Diffusion Model)</dt>
+                    <dd>
+                        <a href="https://imagen.research.google/paper.pdf">
+                            <cit>"Photorealistic Text-to-Image Diffusion Models with Deep Language Understanding"</cit>
+                        </a>
+                    </dd>
+                </dl>
             </div>
 
         </div>
@@ -256,6 +377,9 @@
         <script type="text/javascript" src="js/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/javascript" src="js/impress.js"></script>
 
-        <script>impress().init();</script>
+        <script>
+            impress().init();
+            adjustLastSupper();
+        </script>
     </body>
 </html>
