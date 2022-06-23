@@ -96,14 +96,31 @@
                 <did>$$\log p(x) \ge \mathcal{L}(x) = \mathbb{E}_{q(x|z)}\log p(x|z) - KL(q(z|x)||p(z))$$</did>
             </div>
 
-            <div id="NF" class="step" data-rel-x="0" data-rel-y="1500" data-rotate-z="135">
+            <div id="VAE-detail" class="step" data-rel-x="-220" data-rel-y="220" data-rotate-z="45" data-scale="0.1">
+                <h1>Normally distributed latents</h1>
+                <img src="images/vae_forces.png" width="445" style="background: white; display: inline-block; margin: 0 auto;"/>
+                <img src="images/vae_space.webp" width="445" style="background: white; display: inline-block; margin: 0 auto;"/>
+                <did>
+                    $$
+                    \{\mu_i,\sigma_i\} = \arg\min_{\{\mu_i,\sigma_i\}}
+                        \sum \|x - \hat{x}\|^2 - \frac{1}{2}
+                        \sum \left[
+                            1 + \log \sigma_i^2 - \sigma_i^2 - \mu_i^2
+                        \right]
+                    $$
+                </did>
+                <issue>Not easy to find equilibrium</issue>
+            </div>
+
+            <div id="NF" class="step" data-rel-x="220" data-rel-y="1280" data-rotate-z="135">
                 <h1>Normalizing Flows</h1>
                 <p>
                     Being $\{f_i\}$ diffeomorphisms:<tab/>
                     $p_{\mathcal{Z}_i}(z_i)=p_{\mathcal{Z}_{i+1}}(f_i(z_i))|\det Jf_i(z_i)|$
                 </p>
+                <img src="images/nf_moons.png" width="460" style="display: inline-block; vertical-align: middle;"/>
                 <a href="images/flow.gif" target="_blank">
-                    <img src="images/nf_deform.png" width="350"/>
+                    <img src="images/nf_deform.png" width="400" style="display: inline-block; vertical-align: middle;"/>
                 </a>
                 <p style="margin-top: 0;">
                     <img src="images/x.svg" width="100" style="display: inline-block; margin: 0;"/>
@@ -115,18 +132,24 @@
                 </p>
             </div>
 
-            <div id="DDPM" class="step" data-rel-x="-1500" data-rel-y="0" data-rotate-z="225">
-                <h1>Denoising Diffusion Probabilistic Models</h1>
+            <div id="NF-detail" class="step" data-rel-x="-220" data-rel-y="-220" data-rotate-z="135" data-scale="0.1">
+                <h1>The loss function</h1>
+                $$
+                    \begin{eqnarray}
+                        \theta &=& \arg\max_\theta \log p_\mathcal{X}(\{x_i\}) \\
+                               &=& \arg\max_\theta 
+                                \sum_i\log p_\mathcal{Z}\left(f(x_i)\right)+\sum_k\log\left|\det\left[Jf_k(x_i)\right]\right|
+                    \end{eqnarray}
+                $$
                 <p>
-                    <img src="images/x.svg" width="100" style="display: inline-block; margin: 0; vertical-align: middle;"/>
-                    <img src="images/diffusion_model.png" width="666" style="display: inline-block; vertical-align: middle;"/>
-                    <img src="images/z.svg" width="100" style="display: inline-block; margin: 0; vertical-align: middle;"/>
+                    The challenge: flexibility + efficiency:
                 </p>
-                <did>Reaching the normal distribution via <a href="images/diffusion.gif" target="_blank">Brownian motion</a>.</did>
-                <img src="images/DDPM.png" width="900"/>
+                <img src="images/NF_coupling.svg" width="600"/>
+                <did>Coupling flow: arbitrary complexity</did>
+                <issue>Cannot change number of variables</issue>
             </div>
 
-            <div id="GAN" class="step" data-rel-x="0" data-rel-y="-1500" data-rotate-z="315">
+            <div id="GAN" class="step" data-rel-x="-1280" data-rel-y="220" data-rotate-z="225">
                 <h1>Generative Adversarial Networks</h1>
                 <p>
                     Train directly a generator network $G$...<br/>
@@ -146,9 +169,85 @@
                 </p>
             </div>
 
+            <div id="GAN-detail" class="step" data-rel-x="-150" data-rel-y="-100" data-rotate-z="225" data-scale="0.1">
+                <h1>Training issues</h1>
+                <dl>
+                    <dt>Vanishing gradient</dt>
+                    <dd>
+                        <img src="images/gan_vanishing_gradient.svg" width="800"/>
+                        <did>A very good discriminator is an issue</did>
+                    </dd>
+                    
+                    <dt>Mode collapse</dt>
+                    <dd>
+                        <img src="images/gan_mode_collapse.svg" width="800"/>
+                        <did>How to enforce full distribution support coverage?</did>
+                    </dd>
+                    
+                    <dt>Fail to converge</dt>
+                    <dd>
+                        <a href="https://arxiv.org/pdf/2002.09124.pdf">
+                            <cit>"GANs May Have No Nash Equilibria", Farzan Farnia, Asuman Ozdaglar, MIT</cit>
+                        </a>
+                        <did>Zero-sum game: Generator improves while Discriminator degrades.</did>
+                    </dd>
+                </dl>
+                <issue>Not easy to train and bring to convergence</issue>
+            </div>
+
+            <div id="DDPM" class="step" data-rel-x="150" data-rel-y="-1400" data-rotate-z="315">
+                <h1>Denoising Diffusion Probabilistic Models</h1>
+                <p>
+                    <img src="images/x.svg" width="100" style="display: inline-block; margin: 0; vertical-align: middle;"/>
+                    <img src="images/diffusion_model.png" width="666" style="display: inline-block; vertical-align: middle;"/>
+                    <img src="images/z.svg" width="100" style="display: inline-block; margin: 0; vertical-align: middle;"/>
+                </p>
+                <did>Reaching the normal distribution via <a href="images/diffusion.gif" target="_blank">Brownian motion</a>.</did>
+                <img src="images/DDPM.png" width="900"/>
+            </div>
+
+            <div id="DDPM-detail" class="step" data-rel-x="200" data-rel-y="-500" data-rotate-z="315" data-scale="0.1">
+                <h1>Score-based generative models</h1>
+                $$\small
+                    x_t \leftarrow x_{t-1} + \alpha\nabla_x\log p(x_{t-1}) + \sqrt{2\alpha}z_t \qquad z_t\text{white noise}
+                $$
+                <img src="images/hill_climbing.svg" width="700"/>
+                <did>Annealed Langevin dynamics for a $\sigma_i$ schedule</did>
+                $$\small
+                    p_{\sigma_i}(\tilde{x}|x) = \mathcal{N}(\tilde{x}|x,\sigma_i I) \qquad
+                    \nabla_x \log p_{\sigma_i}(\tilde{x}|x) \approx \text{NN} s_\theta(x,\sigma_i)
+                $$
+                <img src="images/diffusion_beat_GANs.png" width="900"/>
+                <a href="https://arxiv.org/pdf/2105.05233.pdf">
+                    <cit>"Diffusion Models Beat GANs on Image Synthesis", Prafulla Dhariwal, Alex Nichol</cit>
+                </a>
+                <issue>High evaluation time</issue>
+            </div>
+
+            <div id="DDPM-SDE" class="step" data-rel-x="170" data-rel-y="170" data-rotate-z="315" data-scale="0.1">
+                <h1>Continuous DDPM using SDEs</h1>
+                $$
+                    \large
+                    dx = f(x,t)dt + g(t)dw \\
+                    \scriptsize
+                    \begin{eqnarray}
+                        f(\cdot):&& \text{Drift vector} \\
+                        t:&& \text{Time} \\
+                        g(\cdot):&& \text{Diffusion factor} \\
+                        w:&& \text{Brownian motion} \\
+                    \end{eqnarray}
+                $$
+                <img src="images/DDPM_SDE.png" width="900"/>
+                <a href="https://arxiv.org/pdf/2011.13456.pdf">
+                    <cit>"SCORE-BASED GENERATIVE MODELING THROUGH STOCHASTIC DIFFERENTIAL EQUATIONS",
+                         Yang Song, Jascha Sohl-Dickstein, Diederik P. Kingma, Abhishek Kumar, Stefano Ermon, Ben Poole</cit>
+                </a>
+                <issue>High evaluation time</issue>
+            </div>
+
             <!-- Evaluation -->
 
-            <div id="Classificaiton-performances" class="step" data-rel-x="3500" data-rel-y="-2000" data-rotate-z="360">
+            <div id="Classificaiton-performances" class="step" data-rel-x="3370" data-rel-y="-2330" data-rotate-z="360">
                 <h1>Classification performances</h1>
                 <p>
                     Samples complexity to reach the asymptotic error...<br/>

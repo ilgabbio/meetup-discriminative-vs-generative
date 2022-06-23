@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="89.996849mm"
+   height="14.810062mm"
+   viewBox="0 0 89.996849 14.810063"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.2 (dc2aeda, 2022-05-15)"
+   sodipodi:docname="gan_vanishing_gradient.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="2.3647772"
+     inkscape:cx="169.78344"
+     inkscape:cy="74.21418"
+     inkscape:window-width="1440"
+     inkscape:window-height="781"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-26.38427,-30.188362)">
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.21846;stroke-opacity:1"
+       id="rect1490"
+       width="89.778389"
+       height="14.591602"
+       x="26.4935"
+       y="30.297592" />
+    <path
+       style="fill:#ffffff;stroke:#000000;stroke-width:0.264999"
+       d="M 27.832297,38.269408 H 114.80822"
+       id="path186"
+       sodipodi:nodetypes="cc" />
+    <circle
+       style="fill:#4adc2a;fill-opacity:1;stroke:#000000;stroke-width:0.264999"
+       id="path287"
+       cx="82.371315"
+       cy="41.774025"
+       r="1.5348692" />
+    <circle
+       style="fill:#4adc2a;fill-opacity:1;stroke:#000000;stroke-width:0.264999"
+       id="path287-8"
+       cx="88.613121"
+       cy="41.774025"
+       r="1.5348692" />
+    <circle
+       style="fill:#4adc2a;fill-opacity:1;stroke:#000000;stroke-width:0.264999"
+       id="path287-0"
+       cx="96.594444"
+       cy="41.774025"
+       r="1.5348692" />
+    <circle
+       style="fill:#b72adc;fill-opacity:1;stroke:#000000;stroke-width:0.264999"
+       id="path287-2"
+       cx="36.427563"
+       cy="41.774025"
+       r="1.5348692" />
+    <circle
+       style="fill:#b72adc;fill-opacity:1;stroke:#000000;stroke-width:0.264999"
+       id="path287-2-4"
+       cx="42.77169"
+       cy="41.774025"
+       r="1.5348692" />
+    <circle
+       style="fill:#b72adc;fill-opacity:1;stroke:#000000;stroke-width:0.264999"
+       id="path287-2-8"
+       cx="48.911167"
+       cy="41.774025"
+       r="1.5348692" />
+    <path
+       style="fill:none;fill-opacity:1;stroke:#3435bb;stroke-width:0.136443;stroke-opacity:1"
+       d="m 31.715037,38.377089 c 0,0 22.233532,-0.05206 30.292468,0 8.058936,0.05206 9.003007,-1.91395 9.005869,-3.688656 0.0027,-1.68509 -0.409356,-3.417432 8.391834,-3.417432 8.80119,0 29.678432,0.05425 29.678432,0.05425"
+       id="path1124"
+       sodipodi:nodetypes="czssc" />
+    <text
+       xml:space="preserve"
+       style="font-size:3.175px;fill:none;fill-opacity:1;stroke:#3435bb;stroke-width:0.264999;stroke-opacity:1"
+       x="41.636559"
+       y="36.921467"
+       id="text1283"><tspan
+         sodipodi:role="line"
+         id="tspan1281"
+         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.265"
+         x="41.636559"
+         y="36.921467">x<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan1434">G</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.175px;fill:none;fill-opacity:1;stroke:#3435bb;stroke-width:0.264999;stroke-opacity:1"
+       x="86.741661"
+       y="37.106003"
+       id="text1283-9"><tspan
+         sodipodi:role="line"
+         id="tspan1281-8"
+         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.265"
+         x="86.741661"
+         y="37.106003">x<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan1436">R</tspan></tspan></text>
+  </g>
+</svg>

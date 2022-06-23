@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="66.74897mm"
+   height="17.627754mm"
+   viewBox="0 0 66.74897 17.627754"
+   version="1.1"
+   id="svg5"
+   sodipodi:docname="hill_climbing.svg"
+   inkscape:version="1.2 (dc2aeda, 2022-05-15)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="2.4076922"
+     inkscape:cx="116.08627"
+     inkscape:cy="47.140577"
+     inkscape:window-width="1440"
+     inkscape:window-height="781"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2">
+    <marker
+       style="overflow:visible"
+       id="TriangleStart"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="TriangleStart"
+       markerWidth="5.3244081"
+       markerHeight="6.155385"
+       viewBox="0 0 5.3244081 6.1553851"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path135" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="TriangleStart-9"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="TriangleStart"
+       markerWidth="5.3244081"
+       markerHeight="6.155385"
+       viewBox="0 0 5.3244081 6.1553851"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path135-9" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="TriangleStart-03"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="TriangleStart"
+       markerWidth="5.3244081"
+       markerHeight="6.155385"
+       viewBox="0 0 5.3244081 6.1553851"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path135-98" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="TriangleStart-7"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="TriangleStart"
+       markerWidth="5.3244081"
+       markerHeight="6.155385"
+       viewBox="0 0 5.3244081 6.1553851"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path135-0" />
+    </marker>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-10.856586,-32.505083)">
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.168309;stroke-opacity:1"
+       id="rect6022"
+       width="66.580658"
+       height="17.459446"
+       x="10.940741"
+       y="32.589237" />
+    <text
+       xml:space="preserve"
+       style="font-size:3.175px;fill:none;stroke:#000000;stroke-width:0.264999;stroke-opacity:1"
+       x="15.45643"
+       y="36.935081"
+       id="text1057"><tspan
+         sodipodi:role="line"
+         id="tspan1055"
+         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.265"
+         x="15.45643"
+         y="36.935081">Hill climbing</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.175px;fill:none;stroke:#000000;stroke-width:0.264999;stroke-opacity:1"
+       x="40.379807"
+       y="48.241196"
+       id="text1057-6"><tspan
+         sodipodi:role="line"
+         id="tspan1055-0"
+         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.265"
+         x="40.379807"
+         y="48.241196">log p(x) ≈ s<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan5192">θ</tspan>(x)</tspan></text>
+    <g
+       id="g9491"
+       transform="matrix(1.0006205,0,0,0.54407164,-0.02752637,22.577198)">
+      <path
+         style="fill:none;stroke:#000000;stroke-width:0.264999;stroke-opacity:1"
+         d="m 12.750851,49.314778 c 12.994422,-0.209587 3.949008,-13.304943 15.124281,-4.672649 5.279126,4.077839 8.802673,-0.419176 11.317723,-8.802673 2.51505,-8.383501 1.596175,-17.97598 3.98216,-13.204011 4.191749,8.383498 4.820512,-3.143812 7.545149,-3.143812 2.724637,0 4.401336,22.425857 8.593087,22.425857 4.191749,0 4.820854,-12.602107 5.868448,-12.575246 8.173912,0.209587 0.935913,9.200627 10.688961,20.120395"
+         id="path186"
+         sodipodi:nodetypes="cssssssc" />
+      <path
+         style="fill:#000000;fill-opacity:1;stroke:#e81010;stroke-width:0.264999;stroke-opacity:1;marker-end:url(#TriangleStart)"
+         d="m 32.38451,46.101795 2.495498,-0.778063"
+         id="path1541"
+         sodipodi:nodetypes="cc" />
+      <path
+         style="fill:#000000;fill-opacity:1;stroke:#e81010;stroke-width:0.264999;stroke-opacity:1;marker-end:url(#TriangleStart-9)"
+         d="m 35.740913,43.687849 3.455839,-5.087664"
+         id="path1541-7"
+         sodipodi:nodetypes="cc" />
+      <path
+         style="fill:#000000;fill-opacity:1;stroke:#e81010;stroke-width:0.264999;stroke-opacity:1;marker-end:url(#TriangleStart-03)"
+         d="m 39.626706,34.215745 2.332092,-8.821397"
+         id="path1541-6"
+         sodipodi:nodetypes="cc" />
+      <path
+         style="fill:#000000;fill-opacity:1;stroke:#e81010;stroke-width:0.264999;stroke-opacity:1;marker-end:url(#TriangleStart-7)"
+         d="m 41.628027,22.284191 0.393942,-1.891015"
+         id="path1541-39"
+         sodipodi:nodetypes="cc" />
+    </g>
+  </g>
+</svg>
