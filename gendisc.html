@@ -25,14 +25,14 @@
                     <li>Embedding-space / manifold hypothesis</li>
                     <li>Generative approaches</li>
                     <ul>
+                        <li>Autoregressive</li>
                         <li>Variational Autoencoders</li>
                         <li>Normalizing Flows</li>
                         <li>Denoising Diffusion Probabilistic Models</li>
                         <li>Generative Adversarial Networks</li>
                     </ul>
                     <li>Performances</li>
-                    <li>New Generative opportunities</li>
-                    <li>Conclusions</li>
+                    <li>Applications</li>
                 </ul>
             </div>
 
@@ -90,6 +90,29 @@
                 <did>Complex distributions are mapped on simpler ones.</did>
             </div>
 
+            <div id="Autoregressive" class="step" data-rel-x="0" data-rel-y="1000">
+                <h1>Autoregressive</h1>
+                $$
+                    p(x_0,\cdots,x_n) = p(x_0) \: p(x_1|x_0) \: p(x2|x_0,x_1) \cdots p(x_n|x_0,\cdots,x_{n-1})
+                $$
+                <center>
+                    <img style="display: inline-block;" src="images/PixCNNprob.png" height="300"/>
+                    <img style="display: inline-block;" src="images/PixCNN_VQ.png" height="300"/>
+                </center>
+                <div style="margin: 20px auto; width: 70%;">
+                    Quantized:
+                    <ul>
+                        <li>trained tokens' vocabulary</li>
+                        <li>generated tokens instead of pixels</li>
+                        <li>trained decoder converting tokens in pixels</li>
+                    </ul>
+                </div>
+                <issue>Slow, poorly performing:</issue>
+                <a href="https://arxiv.org/abs/2011.10650">
+                    <cit>"Very Deep VAEs Generalize Autoregressive Models and Can Outperform Them on Images", Rewon Child</cit>
+                </a>
+            </div>
+
             <div id="VAE" class="step" data-rel-x="1500" data-rel-y="1500" data-rotate-z="45">
                 <h1>Variational Auto-Encoders</h1>
                 <img src="images/VAE.svg" width="800"/>
@@ -98,8 +121,6 @@
 
             <div id="VAE-detail" class="step" data-rel-x="-220" data-rel-y="220" data-rotate-z="45" data-scale="0.1">
                 <h1>Normally distributed latents</h1>
-                <img src="images/vae_forces.png" width="445" style="background: white; display: inline-block; margin: 0 auto;"/>
-                <img src="images/vae_space.webp" width="445" style="background: white; display: inline-block; margin: 0 auto;"/>
                 <did>
                     $$
                     \{\mu_i,\sigma_i\} = \arg\min_{\{\mu_i,\sigma_i\}}
@@ -109,7 +130,9 @@
                         \right]
                     $$
                 </did>
-                <issue>Not easy to find equilibrium</issue>
+                <img src="images/vae_forces.png" width="445" style="background: white; display: inline-block; margin: 0 auto;"/>
+                <img src="images/vae_space.webp" width="445" style="background: white; display: inline-block; margin: 0 auto;"/>
+                <issue>Not easy to find an equilibrium</issue>
             </div>
 
             <div id="NF" class="step" data-rel-x="220" data-rel-y="1280" data-rotate-z="135">
@@ -146,7 +169,7 @@
                 </p>
                 <img src="images/NF_coupling.svg" width="600"/>
                 <did>Coupling flow: arbitrary complexity</did>
-                <issue>Cannot change number of variables</issue>
+                <issue>Cannot change the number of variables</issue>
             </div>
 
             <div id="GAN" class="step" data-rel-x="-1280" data-rel-y="220" data-rotate-z="225">
@@ -424,34 +447,78 @@
                     <did>@Dalle2 Pics, Twitter</did>
                 </a>
                 <dl>
-                    <dt>DALL-E (Autoregressive Model)</dt>
+                    <dt>DALL-E, 2021-Feb-24, Autoregressive Model</dt>
                     <dd>
                         <a href="https://arxiv.org/pdf/2102.12092.pdf">
                             <cit>"Zero-Shot Text-to-Image Generation"</cit>
                         </a>
                     </dd>
 
-                    <dt>GLIDE (Diffusion Model)</dt>
+                    <dt>GLIDE, 2021-Dec-20, Diffusion Model</dt>
                     <dd>
                         <a href="https://arxiv.org/pdf/2112.10741.pdf">
                             <cit>"GLIDE: Towards Photorealistic Image Generation and Editing with Text-Guided Diffusion Models"</cit>
                         </a>
                     </dd>
 
-                    <dt>DALL-E 2 (Diffusion Model)</dt>
+                    <dt>DALL-E 2, 2022-Apr-13, Diffusion Model</dt>
                     <dd>
                         <a href="https://cdn.openai.com/papers/dall-e-2.pdf">
                             <cit>"Hierarchical Text-Conditional Image Generation with CLIP Latents"</cit>
                         </a>
                     </dd>
                     
-                    <dt>Imagen (Diffusion Model)</dt>
+                    <dt>Imagen, 2022-May-23, Diffusion Model</dt>
                     <dd>
                         <a href="https://imagen.research.google/paper.pdf">
                             <cit>"Photorealistic Text-to-Image Diffusion Models with Deep Language Understanding"</cit>
                         </a>
                     </dd>
                 </dl>
+            </div>
+
+            <div id="Parti-overview" class="step" data-rel-x="1500" data-rel-y="0" data-rotate-z="45">
+                <h1>Parti</h1>
+                <h2>22-Jun-2022, Autoregressive</h2>
+                <img src="images/parti_overview.jpeg" width="900"/>
+                <a href="https://arxiv.org/abs/2206.10789">
+                    <cit>"Scaling Autoregressive Models for Content-Rich Text-to-Image Generation"</cit>
+                </a>
+            </div>
+
+            <div id="Parti-results" class="step" data-rel-x="1500" data-rel-y="0" data-rotate-z="45">
+                <h1>Parti</h1>
+                <h2>Scaling up the model</h2>
+                <img src="images/Parit_outcome.png" width="900"/>
+                <did style="font-size: 100%">
+                    A portrait photo of a kangaroo <br/>
+                    wearing an orange hoodie and blue sunglasses <br/>
+                    standing on the grass in front of the Sydney Opera House <br/>
+                    holding a sign on the chest that says Welcome Friends!
+                </did>
+            </div>
+
+            <div id="Conclusions" class="step" data-rel-x="1500" data-rel-y="0" data-rotate-z="45">
+                <h1>Conclusions</h1>
+                <h2>Generative models</h2>
+                <center style="font-size: 150%;">
+                    Does the effectiveness worth their complexity?<br/><br/>
+                    They are rapidly becoming "human-like"...<br/>
+                    ...is this the start of a new era?<br/><br/>
+                    What about creative jobs like<br/> illustration, narrative.. development?
+                </center>
+                <center style="font-size: 500%; color: white;">
+                    Qs?
+                </center>
+            </div>
+
+            <div id="The-end" class="step end" data-x="15000" data-y="2000" data-scale="20">
+                <h1>Generative Deep Neural Models</h1>
+                <p><tab/></p>
+                <p><tab/></p>
+                <center style="font-size: 500%; color: white;">
+                    Let's have a "Parti"!
+                </center>
             </div>
 
         </div>
