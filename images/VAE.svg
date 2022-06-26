@@ -26,19 +26,25 @@
      showgrid="false"
      showguides="true"
      inkscape:zoom="3.1430869"
-     inkscape:cx="162.57902"
-     inkscape:cy="81.130432"
+     inkscape:cx="162.89718"
+     inkscape:cy="80.971353"
      inkscape:window-width="1440"
-     inkscape:window-height="786"
+     inkscape:window-height="781"
      inkscape:window-x="0"
-     inkscape:window-y="25"
+     inkscape:window-y="565"
      inkscape:window-maximized="1"
      inkscape:current-layer="layer1" />
   <defs
      id="defs1885">
+    <rect
+       x="129.80869"
+       y="46.132991"
+       width="23.543733"
+       height="49.632735"
+       id="rect17720" />
     <marker
        style="overflow:visible"
-       id="Arrow2"
+       id="Arrow2_Fnone_S-000000"
        refX="0"
        refY="0"
        orient="auto-start-reverse"
@@ -52,12 +58,12 @@
       <path
          transform="scale(0.7)"
          d="M -2,-4 9,0 -2,4 c 2,-2.33 2,-5.66 0,-8 z"
-         style="fill:context-stroke;fill-rule:evenodd;stroke:none"
-         id="arrow2L" />
+         style="fill:#000000;fill-rule:evenodd;stroke:none"
+         id="path7190" />
     </marker>
     <marker
        style="overflow:visible"
-       id="Arrow2-5"
+       id="Arrow2-5_Fnone_S-000000"
        refX="0"
        refY="0"
        orient="auto-start-reverse"
@@ -71,8 +77,8 @@
       <path
          transform="scale(0.7)"
          d="M -2,-4 9,0 -2,4 c 2,-2.33 2,-5.66 0,-8 z"
-         style="fill:context-stroke;fill-rule:evenodd;stroke:none"
-         id="arrow2L-8" />
+         style="fill:#000000;fill-rule:evenodd;stroke:none"
+         id="path7193" />
     </marker>
   </defs>
   <g
@@ -278,11 +284,11 @@
              sodipodi:role="line">Z</tspan></text>
       </g>
       <path
-         style="fill:none;fill-opacity:0.911917;stroke:#000000;stroke-width:0.265;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow2)"
+         style="fill:none;fill-opacity:0.911917;stroke:#000000;stroke-width:0.265;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow2_Fnone_S-000000)"
          d="m 40.697356,54.304003 1.470988,7.232359"
          id="path5868" />
       <path
-         style="fill:none;fill-opacity:0.911917;stroke:#000000;stroke-width:0.265;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow2-5)"
+         style="fill:none;fill-opacity:0.911917;stroke:#000000;stroke-width:0.265;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow2-5_Fnone_S-000000)"
          d="m 44.310797,63.103712 2.646335,-6.889683"
          id="path5868-6" />
       <text
@@ -320,5 +326,32 @@
          style="stroke-width:0.1"
          x="61.658947"
          y="63.949173">p(x|z)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.175px;fill:#000000;fill-opacity:0.911917;stroke:none;stroke-width:0.1;stroke-dasharray:none;stroke-opacity:1"
+       x="39.738186"
+       y="41.916012"
+       id="text9546-3"><tspan
+         sodipodi:role="line"
+         id="tspan9544-9"
+         style="stroke-width:0.1"
+         x="39.738186"
+         y="41.916012">µ</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.175px;fill:#000000;fill-opacity:0.911917;stroke:none;stroke-width:0.1;stroke-dasharray:none;stroke-opacity:1"
+       x="39.631905"
+       y="49.404411"
+       id="text9546-3-0"><tspan
+         sodipodi:role="line"
+         id="tspan9544-9-4"
+         style="stroke-width:0.1"
+         x="39.631905"
+         y="49.404411">σ</tspan></text>
+    <text
+       xml:space="preserve"
+       transform="matrix(0.26458333,0,0,0.26458333,9.7565907,26.550379)"
+       id="text17718"
+       style="white-space:pre;shape-inside:url(#rect17720);display:inline;fill:#000000;stroke-width:1.00157" />
   </g>
 </svg>

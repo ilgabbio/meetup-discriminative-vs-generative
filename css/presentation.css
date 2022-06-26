@@ -22,18 +22,27 @@ body {
 }
 
 .impress-enabled div.step {
-    opacity: 0.05;
-    transition: opacity 2s;
-}
-
-.impress-enabled .end.step {
-    opacity: 0;
-    pointer-events: none;
+    opacity: 0.02;
+    transition: opacity 500ms;
+    margin: 0;
 }
 
 .impress-enabled div.step.active {
     opacity: 1;
     margin: 0;
+}
+
+.impress-enabled .agenda.step li {
+    margin-top: 30px;
+}
+
+.impress-enabled .end.step {
+    opacity: 0;
+}
+
+.impress-enabled .end.step,
+.impress-enabled .background.step {
+    pointer-events: none;
 }
 
 div.step.background {
@@ -57,7 +66,7 @@ h1,h2,h3,ul,dd {
 
 did {
     display: block;
-    margin: 0 auto;
+    margin: 20px auto;
     font-size: 24px;
 }
 

@@ -7,7 +7,7 @@
         <link href="./css/presentation.css" rel="stylesheet" />
     </head>
     <body>
-        <div id="impress" data-transition-duration="500">
+        <div id="impress" data-transition-duration="500" data-width="1024" data-height="768" data-max-scale="3">
             <div id="Deep-field" class="step skip background" data-x="15000" data-y="3000" data-z="-500" data-scale="30">
                 <img src="images/background.jpeg" width="900"/>
             </div>
@@ -18,63 +18,64 @@
                 </h1>
             </div>
 
-            <div id="Agenda" class="step" data-x="5000" data-y="-4200">
+            <div id="Agenda" class="step agenda" data-x="5000" data-y="-4200">
                 <h1>Agenda</h1>
                 <ul>
                     <li>Discriminative VS Generative models</li>
-                    <li>Embedding-space / manifold hypothesis</li>
                     <li>Generative approaches</li>
-                    <ul>
-                        <li>Autoregressive</li>
-                        <li>Variational Autoencoders</li>
-                        <li>Normalizing Flows</li>
-                        <li>Denoising Diffusion Probabilistic Models</li>
-                        <li>Generative Adversarial Networks</li>
-                    </ul>
                     <li>Performances</li>
                     <li>Applications</li>
+                    <li>Text-to-image generators</li>
                 </ul>
             </div>
 
             <!-- Definition -->
 
-            <div id="Discriminative" class="step" data-x="7000" data-y="000">
+            <div id="Discriminative" class="step" data-x="7000" data-y="0">
                 <h1>Discriminative models</h1>
                 <center>
-                    Given some pairs $\mathcal{XY}=\{(x_i,y_i)\}$... what about learning:
-                    $$f:\mathcal{X}\to\mathcal{Y} = f(x) = \arg\max_yp(y|x)$$
+                    Given $\{(x_i,z_i)\}$ such that $x_i\in\Re$, $z_i\in\{0,1\}$, learn:
+                    $$f:\mathcal{X}\to\mathcal{Z} = f(x) = \arg\max_zp(z|x)$$
                 </center>
                 <img src="images/discriminative.png" width="500"/>
                 <did>Maximum posterior approach.</did>
             </div>
 
-            <div id="Generative" class="step" data-rel-x="1000" data-rel-y="0">
+            <div id="Generative" class="step" data-rel-x="0" data-rel-y="0">
                 <h1>Generative models</h1>
                 <center>
-                    What about learning the per-class conditional distributions?
-                    $$f:\mathcal{X}\to\mathcal{Y} = f(x) = \arg\max_yp(x|y)$$
+                    Learn the per-class conditional distributions $p(x|z)$:
+                    $$f:\mathcal{X}\to\mathcal{Z} = f(x) = \arg\max_zp(x|z)$$
                 </center>
                 <img src="images/generative.png" width="500"/>
                 <did>Maximum likelihood approach.</did>
             </div>
 
-            <div id="Disc-VS-Gen" class="step" data-rel-x="-500" data-rel-y="400" data-scale="0.5">
+            <div id="Disc-VS-Gen" class="step" data-rel-x="0" data-rel-y="170" data-scale="0.1">
                 <h1>Discriminative VS Generative</h1>
                 <img src="images/discriminative_VS_generative.png" width="900"/>
-                <h2>Partition VS fit<h2>
+                <h2 style="margin-top: 40px;">
+                    Partition VS fit
+                <h2>
             </div>
 
             <!-- Embedding / manifold -->
 
             <div id="Manifold" class="step" data-rel-x="0" data-rel-y="600">
                 <h1>Manifold hypothesis</h1>
-                <img src="images/manifold.svg" width="900"/>
+                <center>
+                    <img src="images/manifold.svg" height="500" style="display: inline-block; vertical-align: middle;"/>
+                    <img src="images/MNIST-tSNE.pbm" height="100" style="display: inline-block; vertical-align: middle;"/>
+                </center>
                 <did>Samples lie on a lower dimensional manifold wrt the data space.</did>
             </div>
 
-            <div id="Embedding" class="step" data-rel-x="1000" data-rel-y="0">
+            <div id="Embedding" class="step" data-rel-x="0" data-rel-y="0">
                 <h1>Embedding space</h1>
-                <img src="images/MNIST-tSNE.pbm" width="500"/>
+                <center>
+                    <img src="images/manifold.svg" height="100" style="display: inline-block; vertical-align: middle;"/>
+                    <img src="images/MNIST-tSNE.pbm" height="500" style="display: inline-block; vertical-align: middle;"/>
+                </center>
                 <did>
                     Samples can be mapped (from the manifold)<br/>
                     on a lower-dimensional (embedding) space<br/>
@@ -91,7 +92,7 @@
             </div>
 
             <div id="Autoregressive" class="step" data-rel-x="0" data-rel-y="1000">
-                <h1>Autoregressive</h1>
+                <h1>Autoregressive models</h1>
                 $$
                     p(x_0,\cdots,x_n) = p(x_0) \: p(x_1|x_0) \: p(x2|x_0,x_1) \cdots p(x_n|x_0,\cdots,x_{n-1})
                 $$
@@ -102,50 +103,93 @@
                 <div style="margin: 20px auto; width: 70%;">
                     Quantized:
                     <ul>
-                        <li>trained tokens' vocabulary</li>
-                        <li>generated tokens instead of pixels</li>
-                        <li>trained decoder converting tokens in pixels</li>
+                        <li>a <b>vocabulary</b> of embedding-vectors is trained </li>
+                        <li><b>keys</b> are generated instead of pixels</li>
+                        <li>a <b>decoder</b> generates images from vectors</li>
                     </ul>
                 </div>
-                <issue>Slow, poorly performing:</issue>
-                <a href="https://arxiv.org/abs/2011.10650">
-                    <cit>"Very Deep VAEs Generalize Autoregressive Models and Can Outperform Them on Images", Rewon Child</cit>
-                </a>
             </div>
 
-            <div id="VAE" class="step" data-rel-x="1500" data-rel-y="1500" data-rotate-z="45">
+            <div id="Autoregressive-detail" class="step" data-rel-x="300" data-rel-y="170" data-scale="0.1">
+                <h1>Vector-Quantized Autoencoders</h1>
+                <img src="images/VQVAE.png" width="900" style="margin: 30px auto;"/>
+                $$
+                    \begin{eqnarray}
+                        \mathcal{E}(x,e) &=& \|sg[e]-E[x]\|^2 & \text{Good encoder} \\
+                        \mathcal{C}(x,e) &=& \|e-sg[E(x)]\|^2 & \text{Good codebook} \\
+                        \mathcal{D}(x,e) &=& \|x-D(e)\|^2 & \text{Good decoder} \\
+                    \end{eqnarray}
+                $$
+                $$\large
+                    \mathcal{L}(x,e) = \mathcal{E}(x,e) + \mathcal{C}(x,e) +\beta\mathcal{D}(x,e)
+                $$
+                <issue>Slow, limited in token resolution</issue>
+            </div>
+
+            <div id="VAE" class="step" data-rel-x="1200" data-rel-y="1330" data-rotate-z="45">
                 <h1>Variational Auto-Encoders</h1>
                 <img src="images/VAE.svg" width="800"/>
-                <did>$$\log p(x) \ge \mathcal{L}(x) = \mathbb{E}_{q(x|z)}\log p(x|z) - KL(q(z|x)||p(z))$$</did>
+                $$
+                    \log p(x) \ge ELBO(x) = \mathbb{E}_{q(x|z)}\log p(x|z) - KL(q(z|x)||p(z))
+                $$
             </div>
 
             <div id="VAE-detail" class="step" data-rel-x="-220" data-rel-y="220" data-rotate-z="45" data-scale="0.1">
                 <h1>Normally distributed latents</h1>
-                <did>
-                    $$
-                    \{\mu_i,\sigma_i\} = \arg\min_{\{\mu_i,\sigma_i\}}
+                $$
+                    \mathcal{L}(x,\hat{x}) =
                         \sum \|x - \hat{x}\|^2 - \frac{1}{2}
                         \sum \left[
                             1 + \log \sigma_i^2 - \sigma_i^2 - \mu_i^2
                         \right]
-                    $$
-                </did>
+                $$
                 <img src="images/vae_forces.png" width="445" style="background: white; display: inline-block; margin: 0 auto;"/>
                 <img src="images/vae_space.webp" width="445" style="background: white; display: inline-block; margin: 0 auto;"/>
-                <issue>Not easy to find an equilibrium</issue>
+                <issue>Generated images are blurry</issue>
             </div>
 
-            <div id="NF" class="step" data-rel-x="220" data-rel-y="1280" data-rotate-z="135">
-                <h1>Normalizing Flows</h1>
+            <div id="GAN" class="step" data-rel-x="220" data-rel-y="1280" data-rotate-z="135">
+                <h2>Generative Adversarial Networks</h2>
                 <p>
-                    Being $\{f_i\}$ diffeomorphisms:<tab/>
-                    $p_{\mathcal{Z}_i}(z_i)=p_{\mathcal{Z}_{i+1}}(f_i(z_i))|\det Jf_i(z_i)|$
+                    Train directly a generator network $G$...<br/>
+                    <ptab/>...using a fancy loss function based on a classifier $D$.
                 </p>
-                <img src="images/nf_moons.png" width="460" style="display: inline-block; vertical-align: middle;"/>
-                <a href="images/flow.gif" target="_blank">
-                    <img src="images/nf_deform.png" width="400" style="display: inline-block; vertical-align: middle;"/>
-                </a>
-                <p style="margin-top: 0;">
+                <img src="images/GAN.svg" width="800"/>
+                $$\small
+                    \mathcal{V}(G,D)=\min_G\max_D 
+                    \mathbb{E}_x\left[\log D(x)\right] + \mathbb{E}_z\left[\log(1-D(G(z)))\right]
+                $$
+            </div>
+
+            <div id="GAN-detail" class="step" data-rel-x="-220" data-rel-y="-220" data-rotate-z="135" data-scale="0.1">
+                <h1>Training issues</h1>
+                <dl>
+                    <dt>Vanishing gradients</dt>
+                    <dd>
+                        <img src="images/gan_vanishing_gradient.svg" width="700"/>
+                        <did>What about a very bad generator and a very good discriminator?</did>
+                    </dd>
+                    
+                    <dt>Sample diversity</dt>
+                    <dd>
+                        <img src="images/gan_mode_collapse.svg" width="700"/>
+                        <did>How to enforce full distribution support coverage?</did>
+                    </dd>
+                    
+                    <dt>Convergence failure</dt>
+                    <dd>
+                        Zero-sum game: Generator improves while Discriminator degrades.
+                        <a href="https://arxiv.org/pdf/2002.09124.pdf" target="_blank">
+                            <cit>"GANs May Have No Nash Equilibria", Farzan Farnia, Asuman Ozdaglar, MIT</cit>
+                        </a>
+                    </dd>
+                </dl>
+                <issue>Not easy to train and bring to convergence</issue>
+            </div>
+
+            <div id="NF" class="step" data-rel-x="-1280" data-rel-y="220" data-rotate-z="225">
+                <h1 style="margin: 0;">Normalizing Flows</h1>
+                <p style="margin: 0;">
                     <img src="images/x.svg" width="100" style="display: inline-block; margin: 0;"/>
                     <span style="width: 70%; display: inline-block; margin: 0 10px;">
                         $$x = z_0 \rightarrow f_1(z_0) = z_1 \rightarrow \cdots \rightarrow f_n(z_{n-1}) = z_n$$
@@ -153,9 +197,17 @@
                     </span>
                     <img src="images/z.svg" width="100" style="display: inline-block; margin: 0;"/>
                 </p>
+                <p style="margin-top: 0;">
+                    being $\{f_i\}$ diffeomorphisms:<tab/>
+                    $p_{\mathcal{Z}_i}(z_i)=p_{\mathcal{Z}_{i+1}}(f_i(z_i))|\det Jf_i(z_i)|$
+                </p>
+                <img src="images/nf_moons.png" width="460" style="display: inline-block; vertical-align: middle;"/>
+                <a href="images/flow.gif" target="_blank">
+                    <img src="images/nf_deform.png" width="400" style="display: inline-block; vertical-align: middle;"/>
+                </a>
             </div>
 
-            <div id="NF-detail" class="step" data-rel-x="-220" data-rel-y="-220" data-rotate-z="135" data-scale="0.1">
+            <div id="NF-detail" class="step skip" data-rel-x="-150" data-rel-y="-100" data-rotate-z="225" data-scale="0.1">
                 <h1>The loss function</h1>
                 $$
                     \begin{eqnarray}
@@ -167,55 +219,9 @@
                 <p>
                     The challenge: flexibility + efficiency:
                 </p>
-                <img src="images/NF_coupling.svg" width="600"/>
+                <img src="images/NF_coupling.svg" width="500"/>
                 <did>Coupling flow: arbitrary complexity</did>
                 <issue>Cannot change the number of variables</issue>
-            </div>
-
-            <div id="GAN" class="step" data-rel-x="-1280" data-rel-y="220" data-rotate-z="225">
-                <h1>Generative Adversarial Networks</h1>
-                <p>
-                    Train directly a generator network $G$...<br/>
-                    <ptab/>...using a fancy loss function with a classifier $D$.
-                </p>
-                <p>
-                    <img src="images/GAN.svg" width="400" style="display: inline-block; vertical-align: middle;"/>
-                    <span style="display: inline-block;">
-                    $$\small
-                    \begin{eqnarray}
-                        \mathcal{V}(G,D)&=&\min_G\max_D 
-                        \mathbb{E}_x\left[\log D(x)\right] \\
-                        &+& \mathbb[E]_z\left[\log(1-D(G(z)))\right]
-                    \end{eqnarray}
-                    $$
-                    </span>
-                </p>
-            </div>
-
-            <div id="GAN-detail" class="step" data-rel-x="-150" data-rel-y="-100" data-rotate-z="225" data-scale="0.1">
-                <h1>Training issues</h1>
-                <dl>
-                    <dt>Vanishing gradient</dt>
-                    <dd>
-                        <img src="images/gan_vanishing_gradient.svg" width="800"/>
-                        <did>A very good discriminator is an issue</did>
-                    </dd>
-                    
-                    <dt>Mode collapse</dt>
-                    <dd>
-                        <img src="images/gan_mode_collapse.svg" width="800"/>
-                        <did>How to enforce full distribution support coverage?</did>
-                    </dd>
-                    
-                    <dt>Fail to converge</dt>
-                    <dd>
-                        <a href="https://arxiv.org/pdf/2002.09124.pdf">
-                            <cit>"GANs May Have No Nash Equilibria", Farzan Farnia, Asuman Ozdaglar, MIT</cit>
-                        </a>
-                        <did>Zero-sum game: Generator improves while Discriminator degrades.</did>
-                    </dd>
-                </dl>
-                <issue>Not easy to train and bring to convergence</issue>
             </div>
 
             <div id="DDPM" class="step" data-rel-x="150" data-rel-y="-1400" data-rotate-z="315">
@@ -241,7 +247,7 @@
                     \nabla_x \log p_{\sigma_i}(\tilde{x}|x) \approx \text{NN} s_\theta(x,\sigma_i)
                 $$
                 <img src="images/diffusion_beat_GANs.png" width="900"/>
-                <a href="https://arxiv.org/pdf/2105.05233.pdf">
+                <a href="https://arxiv.org/pdf/2105.05233.pdf" target="_blank">
                     <cit>"Diffusion Models Beat GANs on Image Synthesis", Prafulla Dhariwal, Alex Nichol</cit>
                 </a>
                 <issue>High evaluation time</issue>
@@ -261,7 +267,7 @@
                     \end{eqnarray}
                 $$
                 <img src="images/DDPM_SDE.png" width="900"/>
-                <a href="https://arxiv.org/pdf/2011.13456.pdf">
+                <a href="https://arxiv.org/pdf/2011.13456.pdf" target="_blank">
                     <cit>"SCORE-BASED GENERATIVE MODELING THROUGH STOCHASTIC DIFFERENTIAL EQUATIONS",
                          Yang Song, Jascha Sohl-Dickstein, Diederik P. Kingma, Abhishek Kumar, Stefano Ermon, Ben Poole</cit>
                 </a>
@@ -270,7 +276,7 @@
 
             <!-- Evaluation -->
 
-            <div id="Classificaiton-performances" class="step" data-rel-x="3370" data-rel-y="-2330" data-rotate-z="360">
+            <div id="Classificaiton-performances" class="step skip" data-rel-x="3370" data-rel-y="-2330" data-rotate-z="360">
                 <h1>Classification performances</h1>
                 <p>
                     Samples complexity to reach the asymptotic error...<br/>
@@ -283,12 +289,12 @@
                 <img src="images/class-perf.png" width="900"/>
                 <center>BUT</center>
                 $$\epsilon(h_{Dis,\infty}) \lt \epsilon(h_{Gen,\infty})$$
-                <a href="https://ai.stanford.edu/~ang/papers/nips01-discriminativegenerative.pdf">
+                <a href="https://ai.stanford.edu/~ang/papers/nips01-discriminativegenerative.pdf" target="_blank">
                     <cit>"On Discriminative vs. Generative Classifiers: A comparison of logistic regression and naive Bayes", Andrew Y. Ng, Michael I. Jordan</cit>
                 </a>
             </div>
 
-            <div id="Generation-quality" class="step" data-rel-x="1000" data-rel-y="-1000" data-rotate-z="270">
+            <div id="Generation-quality" class="step skip" data-rel-x="1000" data-rel-y="-1000" data-rotate-z="270">
                 <h1>Generation quality</h1>
                 Hard task, currently a research topic.
                 Some common metric issues:
@@ -301,12 +307,12 @@
                     <dd>Do not work only with images: consider videos, text, audio, ...</dd>
                 </dl>
                 <img src="images/PPL.png" width="700"/>
-                <a href="https://arxiv.org/pdf/2103.09396.pdf">
+                <a href="https://arxiv.org/pdf/2103.09396.pdf" target="_blank">
                     <cit>"Pros and Cons of GAN Evaluation Measures: New Developments", Ali Borji</cit>
                 </a>
             </div>
 
-            <div id="Distribution-adherence" class="step" data-rel-x="-1000" data-rel-y="-1000" data-rotate-z="180">
+            <div id="Distribution-adherence" class="step skip" data-rel-x="-1000" data-rel-y="-1000" data-rotate-z="180">
                 <h1>Distribution adherence</h1>
                 Some common generator issues:
                 <dl>
@@ -318,12 +324,12 @@
                     <dd>Generated samples lie outside the data manifold (eg. interpolation).</dd>
                 </dl>
                 <img src="images/prerec.png" width="900"/>
-                <a href="https://arxiv.org/pdf/2103.09396.pdf">
+                <a href="https://arxiv.org/pdf/2103.09396.pdf" target="_blank">
                     <cit>"Pros and Cons of GAN Evaluation Measures: New Developments", Ali Borji</cit>
                 </a>
             </div>
 
-            <div id="Embedding-quality" class="step" data-rel-x="-1000" data-rel-y="1000" data-rotate-z="90">
+            <div id="Embedding-quality" class="step skip" data-rel-x="-1000" data-rel-y="1000" data-rotate-z="90">
                 <h1>Embedding quality</h1>
                 Some desirable aspects of the empedding space:
                 <dl>
@@ -335,10 +341,10 @@
                     <dd>Latent variables change different characteristics of data.</dd>
                 </dl>
                 <img src="images/emotions.png" width="800"/>
-                <a href="https://deepgenerativemodels.github.io/assets/slides/cs236_lecture15.pdf">
+                <a href="https://deepgenerativemodels.github.io/assets/slides/cs236_lecture15.pdf" target="_blank">
                     <cit>"Deep generative models", Standford, 2021, CS236 - Lecture 15, Stefano Ermon, Yang Song</cit>
                 </a>
-                <a href="https://arxiv.org/pdf/2205.06102v1.pdf">
+                <a href="https://arxiv.org/pdf/2205.06102v1.pdf" target="_blank">
                     <cit>"Tensor-based Emotion Editing in the StyleGAN Latent Space", Rene Haas, Stella Graßhof, and Sami S. Brandt</cit>
                 </a>
             </div>
@@ -365,8 +371,10 @@
                     <dt>Detecting outliers/anomalies:</dt>
                     <dd>
                         <img src="images/AnoVAE.png" width="900"/>
-                        <cit>"Autoencoders for Unsupervised Anomaly Segmentation in Brain MR Images: A Comparative Study",
-                             Christoph Baur, Stefan Denner, Benedikt Wiestler, Shadi Albarqouni and Nassir Navab</cit>
+                        <a href="https://arxiv.org/pdf/2004.03271.pdf">
+                            <cit>"Autoencoders for Unsupervised Anomaly Segmentation in Brain MR Images: A Comparative Study",
+                                 Christoph Baur, Stefan Denner, Benedikt Wiestler, Shadi Albarqouni and Nassir Navab</cit>
+                        </a>
                     </dd>
                 </dl>
             </div>
@@ -377,20 +385,24 @@
                     <dt>Latent-space feature editing:</dt>
                     <dd>
                         <img src="images/InterFaceGAN.png" width="900"/>
-                        <cit>"Interpreting the Latent Space of GANs for Semantic Face Editing",
-                             Yujun Shen, Jinjin Gu, Xiaoou Tang, Bolei Zhou</cit>
+                        <a href="https://arxiv.org/pdf/1907.10786.pdf">
+                            <cit>"Interpreting the Latent Space of GANs for Semantic Face Editing",
+                                 Yujun Shen, Jinjin Gu, Xiaoou Tang, Bolei Zhou</cit>
+                        </a>
                     </dd>
                 </dl>
             </div>
 
-            <div id="Applications03" class="step" data-rel-x="1500" data-rel-y="0" data-rotate-z="45">
+            <div id="Applications03" class="step skip" data-rel-x="1500" data-rel-y="0" data-rotate-z="45">
                 <h1>A new world of applications</h1>
                 <dl>
                     <dt>Image transformation via conditional generation:</dt>
                     <dd>
                         <img src="images/pix2pix.jpeg" width="900"/>
-                        <cit>"Image-to-Image Translation with Conditional Adversarial Nets",
-                             Phillip Isola, Jun-Yan Zhu, Tinghui Zhou, Alexei A. Efros</cit>
+                        <a href="https://arxiv.org/pdf/1611.07004.pdf">
+                            <cit>"Image-to-Image Translation with Conditional Adversarial Nets",
+                                 Phillip Isola, Jun-Yan Zhu, Tinghui Zhou, Alexei A. Efros</cit>
+                        </a>
                     </dd>
                 </dl>
             </div>
@@ -401,7 +413,7 @@
                     <dt>Aerial images semantic segmentation:</dt>
                     <dd>
                         <img src="images/pix2pix_semseg_aerial.png" height="200"/>
-                        <a href="https://github.com/A2Amir/Pix2Pix-for-Semantic-Segmentation-of-Satellite-Images">
+                        <a href="https://github.com/A2Amir/Pix2Pix-for-Semantic-Segmentation-of-Satellite-Images" target="_blank">
                             <cit>"What Is Pix2Pix and How To Use It for Semantic Segmentation of Satellite Images?"</cit>
                         </a>
                     </dd>
@@ -409,8 +421,10 @@
                     <dt>Cell membrane and nucleus semantic segmentation:</dt>
                     <dd>
                         <img src="images/pix2pix_semseg_cell.png" width="900"/>
-                        <cit>"Cell Image Segmentation by Integrating Pix2pixs for Each Class",
-                             Hiroki Tsuda and Kazuhiro Hotta</cit>
+                        <a href="https://www.researchgate.net/profile/Hiroki_Tsuda4/publication/340555405_Cell_Image_Segmentation_by_Integrating_Pix2pixs_for_Each_Class/links/5f45ba7ba6fdcccc43057ea6/Cell-Image-Segmentation-by-Integrating-Pix2pixs-for-Each-Class.pdf?origin=publication_detail">
+                            <cit>"Cell Image Segmentation by Integrating Pix2pixs for Each Class",
+                                 Hiroki Tsuda and Kazuhiro Hotta</cit>
+                        </a>
                     </dd>
                 </dl>
             </div>
@@ -421,15 +435,15 @@
                     <dt>Domain adaptation</dt>
                     <dd>
                         <img src="images/AttentionGAN.png" width="800"/>
-                        <a href="https://arxiv.org/pdf/1911.11897.pdf">
+                        <a href="https://arxiv.org/pdf/1911.11897.pdf" target="_blank">
                             <cit>"AttentionGAN: Unpaired Image-to-Image Translation using Attention-Guided Generative Adversarial Networks", Hao Tang, Hong Liu, Dan Xu, Philip H.S. Torr, and Nicu Sebe</cit>
                         </a>
                     </dd>
                 </dl>
             </div>
 
-            <div id="Applications06" class="step" data-rel-x="-1500" data-rel-y="1500" data-rotate-z="45">
-                <h2 style="margin: 0 0;">Text-to-images short story</h2>
+            <div id="Text-to-images" class="step" data-rel-x="-1500" data-rel-y="1500" data-rotate-z="45">
+                <h2 style="margin: 0 0;">Text-to-images, short story</h2>
                 <div id="LastSupper" style="width: 70%; margin: 0 auto; overflow-x: scroll;">
                     <a href="images/LastSupper.jpeg" target="_blank">
                         <img src="images/LastSupper.jpeg" height="320"/>
@@ -443,53 +457,73 @@
                         elem.scrollLeft = (elemWidth - elemVisibleWidth) * 28 / 50;
                     }
                 </script>
-                <a href="https://mobile.twitter.com/gabe_ragland/status/1539005324983578624/photo/1">
-                    <did>@Dalle2 Pics, Twitter</did>
+                <a href="https://mobile.twitter.com/gabe_ragland/status/1539005324983578624/photo/1" target="_blank">
+                    <did>@DALL-E 2 Pics, Twitter</did>
                 </a>
                 <dl>
-                    <dt>DALL-E, 2021-Feb-24, Autoregressive Model</dt>
+                    <dt>DALL-E, OpenAI, 2021-Feb-24, Autoregressive Model</dt>
                     <dd>
-                        <a href="https://arxiv.org/pdf/2102.12092.pdf">
+                        <a href="https://arxiv.org/pdf/2102.12092.pdf" target="_blank">
                             <cit>"Zero-Shot Text-to-Image Generation"</cit>
                         </a>
                     </dd>
 
-                    <dt>GLIDE, 2021-Dec-20, Diffusion Model</dt>
+                    <dt>GLIDE, OpenAI, 2021-Dec-20, Diffusion Model</dt>
                     <dd>
-                        <a href="https://arxiv.org/pdf/2112.10741.pdf">
+                        <a href="https://arxiv.org/pdf/2112.10741.pdf" target="_blank">
                             <cit>"GLIDE: Towards Photorealistic Image Generation and Editing with Text-Guided Diffusion Models"</cit>
                         </a>
                     </dd>
 
-                    <dt>DALL-E 2, 2022-Apr-13, Diffusion Model</dt>
+                    <dt>DALL-E 2, OpenAI, 2022-Apr-13, Diffusion Model</dt>
                     <dd>
-                        <a href="https://cdn.openai.com/papers/dall-e-2.pdf">
+                        <a href="https://cdn.openai.com/papers/dall-e-2.pdf" target="_blank">
                             <cit>"Hierarchical Text-Conditional Image Generation with CLIP Latents"</cit>
-                        </a>
-                    </dd>
-                    
-                    <dt>Imagen, 2022-May-23, Diffusion Model</dt>
-                    <dd>
-                        <a href="https://imagen.research.google/paper.pdf">
-                            <cit>"Photorealistic Text-to-Image Diffusion Models with Deep Language Understanding"</cit>
                         </a>
                     </dd>
                 </dl>
             </div>
 
+            <div id="CLIP" class="step" data-rel-x="200" data-rel-y="300" data-rotate-z="45" data-scale="0.1">
+                <h1>CLIP</h1>
+                CLIP, OpenAI, 2021-Feb-26
+                <a href="https://arxiv.org/pdf/2103.00020.pdf">
+                    <did>Learning Transferable Visual Models From Natural Language Supervision</did>
+                </a>
+                <img src="images/CLIP.png" width="900"/>
+            </div>
+
+            <div id="DALL-E2" class="step" data-rel-x="-60" data-rel-y="60" data-rotate-z="45" data-scale="0.1">
+                <h1>unCLIP</h1>
+                <h2>(DALL-E 2)</h2>
+                <img src="images/DALLE2.png" width="900"/>
+                $$
+                    p(x|y) = p(x,z_i|y) = p(x|z_i,y) \; p(z_i|y) \\
+                    x\equiv\text{image} \quad y\equiv\text{caption} \quad z_i=f(x)\equiv\text{image embedding}
+                $$
+            </div>
+
+            <div id="Imagen" class="step" data-rel-x="-1640" data-rel-y="1140" data-rotate-z="45">
+                <h1>Imagen</h1>
+                Google AI, 2022-May-23, Diffusion Model
+                <a href="https://imagen.research.google/paper.pdf" target="_blank">
+                    <cit>"Photorealistic Text-to-Image Diffusion Models with Deep Language Understanding"</cit>
+                </a>
+            </div>
+
             <div id="Parti-overview" class="step" data-rel-x="1500" data-rel-y="0" data-rotate-z="45">
                 <h1>Parti</h1>
-                <h2>22-Jun-2022, Autoregressive</h2>
-                <img src="images/parti_overview.jpeg" width="900"/>
-                <a href="https://arxiv.org/abs/2206.10789">
+                GoogleAI, 22-Jun-2022, Autoregressive Model
+                <a href="https://arxiv.org/abs/2206.10789" target="_blank">
                     <cit>"Scaling Autoregressive Models for Content-Rich Text-to-Image Generation"</cit>
                 </a>
+                <img src="images/Parti_overview.jpeg" width="900"/>
             </div>
 
             <div id="Parti-results" class="step" data-rel-x="1500" data-rel-y="0" data-rotate-z="45">
                 <h1>Parti</h1>
                 <h2>Scaling up the model</h2>
-                <img src="images/Parit_outcome.png" width="900"/>
+                <img src="images/Parti_outcome.png" width="900"/>
                 <did style="font-size: 100%">
                     A portrait photo of a kangaroo <br/>
                     wearing an orange hoodie and blue sunglasses <br/>
@@ -519,6 +553,9 @@
                 <center style="font-size: 500%; color: white;">
                     Let's have a "Parti"!
                 </center>
+            </div>
+
+            <div id="Empty" class="step end" data-x="15000" data-y="2000" data-scale="20">
             </div>
 
         </div>
