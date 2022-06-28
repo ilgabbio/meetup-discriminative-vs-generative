@@ -59,7 +59,7 @@ h1,h2,h3,did {
     color: #ffffff;
 }
 
-h1,h2,h3,ul,dd {
+h1,h2,h3,ul,dd,li {
     margin-bottom: 0.5em;
     margin-top: 0;
 }

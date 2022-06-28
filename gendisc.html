@@ -487,28 +487,33 @@
                 <a href="https://mobile.twitter.com/gabe_ragland/status/1539005324983578624/photo/1" target="_blank">
                     <did>@DALL-E 2 Pics, Twitter</did>
                 </a>
-                <dl>
-                    <dt>DALL-E, OpenAI, 2021-Feb-24, Autoregressive Model</dt>
+                <dl style="margin-bottom: 0;">
+                    <dt>DALL-E, OpenAI, 2021-Feb-24, Autoregressive Model, ~12B parameters</dt>
                     <dd>
                         <a href="https://arxiv.org/pdf/2102.12092.pdf" target="_blank">
                             <cit>"Zero-Shot Text-to-Image Generation"</cit>
                         </a>
                     </dd>
 
-                    <dt>GLIDE, OpenAI, 2021-Dec-20, Diffusion Model</dt>
+                    <dt>GLIDE, OpenAI, 2021-Dec-20, Diffusion Model, ~3.5B parameters</dt>
                     <dd>
                         <a href="https://arxiv.org/pdf/2112.10741.pdf" target="_blank">
                             <cit>"GLIDE: Towards Photorealistic Image Generation and Editing with Text-Guided Diffusion Models"</cit>
                         </a>
                     </dd>
 
-                    <dt>DALL-E 2, OpenAI, 2022-Apr-13, Diffusion Model</dt>
+                    <dt>DALL-E 2, OpenAI, 2022-Apr-13, Diffusion Model, ~3.5B parameters</dt>
                     <dd>
                         <a href="https://cdn.openai.com/papers/dall-e-2.pdf" target="_blank">
                             <cit>"Hierarchical Text-Conditional Image Generation with CLIP Latents"</cit>
                         </a>
                     </dd>
                 </dl>
+                <div style="text-align: right;">
+                    <a href="https://github.com/Yutong-Zhou-cv/Awesome-Text-to-Image#head-2022">
+                        ..and many many more..!
+                    </a>
+                </div>
             </div>
 
             <div id="CLIP" class="step" data-rel-x="200" data-rel-y="300" data-rotate-z="45" data-scale="0.1">
@@ -537,6 +542,11 @@
                     p(x|y) = p(x,z_i|y) = p(x|z_i,y) \; p(z_i|y) \\
                     x\equiv\text{image} \quad y\equiv\text{caption} \quad z_i=f(x)\equiv\text{image embedding}
                 $$
+                <did>
+                    ~3.5B parameters
+                    <tab/>
+                    ~650M samples
+                </did>
             </div>
 
             <div id="Imagen" class="step" data-rel-x="-1600" data-rel-y="1100" data-rotate-z="45">
@@ -545,6 +555,24 @@
                 <a href="https://imagen.research.google/paper.pdf" target="_blank">
                     <cit>"Photorealistic Text-to-Image Diffusion Models with Deep Language Understanding"</cit>
                 </a>
+                <center style="font-size: smaller; margin-top: 30px;">
+                    <ul style="display: inline-block; width: 400px; vertical-align: middle; text-align: left;">
+                        <li>Pre-trained text encoder<br/>(many tested, adopted T5-XXL).</li>
+                        <li>
+                            UNet-based diffusive<br/>text-to-image model (64x64).
+                            <a href="https://arxiv.org/pdf/2102.09672.pdf" target="_blank">
+                                <cit>"Improved Denoising Diffusion Probabilistic Models", OpenAI</cit>
+                            </a>
+                        </li>
+                        <li>(Efficient) UNet-based diffusive<br/>super-resolution model<br/>(2-step: 256x256, 1024x1024).</li>
+                    </ul>
+                    <img src="images/Imagen.png" width="400" style="display: inline-block; vertical-align: middle;"/>
+                </center>
+                <did>
+                    ~3B parameters
+                    <tab/>
+                    ~860M samples
+                </did>
             </div>
 
             <div id="Parti-overview" class="step" data-rel-x="1500" data-rel-y="0" data-rotate-z="45">
@@ -553,18 +581,27 @@
                 <a href="https://arxiv.org/abs/2206.10789" target="_blank">
                     <cit>"Scaling Autoregressive Models for Content-Rich Text-to-Image Generation"</cit>
                 </a>
-                <img src="images/Parti_overview.jpeg" width="900"/>
+                <img src="images/Parti_overview.jpeg" width="700"/>
+                <did>
+                    ~20B parameters
+                    <tab/>
+                    ~4.8B samples
+                </did>
             </div>
 
             <div id="Parti-scaling" class="step" data-rel-x="1500" data-rel-y="0" data-rotate-z="45">
-                <h1>Parti</h1>
-                <h2>Scaling up the model.. with >1B samples</h2>
-                <img src="images/Parti_outcome.png" width="900"/>
-                <did style="font-size: 100%">
-                    A portrait photo of a kangaroo <br/>
+                <h2>Parti</h2>
+                <img src="images/Parti_outcome_01.png" width="800"/>
+                <did style="font-size: 70%">
+                    A portrait photo of a kangaroo 
                     wearing an orange hoodie and blue sunglasses <br/>
                     standing on the grass in front of the Sydney Opera House <br/>
                     holding a sign on the chest that says Welcome Friends!
+                </did>
+                <img src="images/Parti_outcome_02.png" width="800"/>
+                <did style="font-size: 70%">
+                    A green sign that says "Very Deep Learning" and is at the edge of the Grand Canyon. <br/>
+                    Puffy white clouds are in the sky.
                 </did>
             </div>
 
