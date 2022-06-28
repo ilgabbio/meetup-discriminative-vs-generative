@@ -91,7 +91,29 @@
                 <did>Complex distributions are mapped on simpler ones.</did>
             </div>
 
-            <div id="Autoregressive" class="step" data-rel-x="0" data-rel-y="1000">
+            <div id="VAE" class="step" data-rel-x="0" data-rel-y="1000">
+                <h1>Variational Auto-Encoders</h1>
+                <img src="images/VAE.svg" width="800"/>
+                $$
+                    \log p(x) \ge ELBO(x) = \mathbb{E}_{q(x|z)}\log p(x|z) - KL(q(z|x)||p(z))
+                $$
+            </div>
+
+            <div id="VAE-detail" class="step" data-rel-x="300" data-rel-y="170" data-scale="0.1">
+                <h1>Normally distributed latents</h1>
+                $$
+                    \mathcal{L}(x,\hat{x}) =
+                        \sum \|x - \hat{x}\|^2 - \frac{1}{2}
+                        \sum \left[
+                            1 + \log \sigma_i^2 - \sigma_i^2 - \mu_i^2
+                        \right]
+                $$
+                <img src="images/vae_forces.png" width="445" style="background: white; display: inline-block; margin: 0 auto;"/>
+                <img src="images/vae_space.webp" width="445" style="background: white; display: inline-block; margin: 0 auto;"/>
+                <issue>Generated images are blurry</issue>
+            </div>
+
+            <div id="Autoregressive" class="step" data-rel-x="1200" data-rel-y="1330" data-rotate-z="45">
                 <h1>Autoregressive models</h1>
                 $$
                     p(x_0,\cdots,x_n) = p(x_0) \: p(x_1|x_0) \: p(x2|x_0,x_1) \cdots p(x_n|x_0,\cdots,x_{n-1})
@@ -110,8 +132,8 @@
                 </div>
             </div>
 
-            <div id="Autoregressive-detail" class="step" data-rel-x="300" data-rel-y="170" data-scale="0.1">
-                <h1>Vector-Quantized Autoencoders</h1>
+            <div id="VQ-VAE" class="step" data-rel-x="-220" data-rel-y="220" data-rotate-z="45" data-scale="0.1">
+                <h1>Vector-Quantized VAE</h1>
                 <img src="images/VQVAE.png" width="900" style="margin: 30px auto;"/>
                 $$
                     \begin{eqnarray}
@@ -121,31 +143,9 @@
                     \end{eqnarray}
                 $$
                 $$\large
-                    \mathcal{L}(x,e) = \mathcal{E}(x,e) + \mathcal{C}(x,e) +\beta\mathcal{D}(x,e)
+                    \mathcal{L}(x,e) = \mathcal{E}(x,e) + \mathcal{C}(x,e) + \beta\mathcal{D}(x,e)
                 $$
                 <issue>Slow, limited in token resolution</issue>
-            </div>
-
-            <div id="VAE" class="step" data-rel-x="1200" data-rel-y="1330" data-rotate-z="45">
-                <h1>Variational Auto-Encoders</h1>
-                <img src="images/VAE.svg" width="800"/>
-                $$
-                    \log p(x) \ge ELBO(x) = \mathbb{E}_{q(x|z)}\log p(x|z) - KL(q(z|x)||p(z))
-                $$
-            </div>
-
-            <div id="VAE-detail" class="step" data-rel-x="-220" data-rel-y="220" data-rotate-z="45" data-scale="0.1">
-                <h1>Normally distributed latents</h1>
-                $$
-                    \mathcal{L}(x,\hat{x}) =
-                        \sum \|x - \hat{x}\|^2 - \frac{1}{2}
-                        \sum \left[
-                            1 + \log \sigma_i^2 - \sigma_i^2 - \mu_i^2
-                        \right]
-                $$
-                <img src="images/vae_forces.png" width="445" style="background: white; display: inline-block; margin: 0 auto;"/>
-                <img src="images/vae_space.webp" width="445" style="background: white; display: inline-block; margin: 0 auto;"/>
-                <issue>Generated images are blurry</issue>
             </div>
 
             <div id="GAN" class="step" data-rel-x="220" data-rel-y="1280" data-rotate-z="135">
@@ -161,7 +161,23 @@
                 $$
             </div>
 
-            <div id="GAN-detail" class="step" data-rel-x="-220" data-rel-y="-220" data-rotate-z="135" data-scale="0.1">
+            <div id="GAN-VQ" class="step" data-rel-x="-220" data-rel-y="-220" data-rotate-z="135" data-scale="0.1">
+                <h1>Vector-Quantized GAN</h1>
+                <img src="images/VQGAN.jpg" width="900"/>
+                <a href="https://arxiv.org/pdf/2012.09841.pdf">
+                    <cit>"Taming Transformers for High-Resolution Image Synthesis",
+                         Patrick Esser, Robin Rombach, Bjorn Ommer, Jun 2021</cit>
+                <a/>
+                $$
+                    \mathcal{Q} = \arg\min_{E,G,\mathcal{Z}}\max_D
+                    \mathbb{E}\left[
+                        \mathcal{L}_{VQ}(E,G,\mathcal{Z}) + \lambda\mathcal{L}_{GAN}(\{E,G,\mathcal{Z}\},D)
+                    \right]
+                $$
+                NOTE: Instead of MSE a <i>perceptual loss</i> is used.
+            </div>
+
+            <div id="GAN-detail" class="step skip" data-rel-x="-220" data-rel-y="-220" data-rotate-z="135" data-scale="0.1">
                 <h1>Training issues</h1>
                 <dl>
                     <dt>Vanishing gradients</dt>
@@ -187,7 +203,7 @@
                 <issue>Not easy to train and bring to convergence</issue>
             </div>
 
-            <div id="NF" class="step" data-rel-x="-1280" data-rel-y="220" data-rotate-z="225">
+            <div id="NF" class="step" data-rel-x="-1060" data-rel-y="440" data-rotate-z="225">
                 <h1 style="margin: 0;">Normalizing Flows</h1>
                 <p style="margin: 0;">
                     <img src="images/x.svg" width="100" style="display: inline-block; margin: 0;"/>
@@ -379,7 +395,7 @@
                 </dl>
             </div>
 
-            <div id="Applications02" class="step" data-rel-x="1500" data-rel-y="0" data-rotate-z="45">
+            <div id="Applications02" class="step skip" data-rel-x="1500" data-rel-y="0" data-rotate-z="45">
                 <h1>A new world of applications</h1>
                 <dl>
                     <dt>Latent-space feature editing:</dt>
@@ -407,7 +423,7 @@
                 </dl>
             </div>
 
-            <div id="Applications04" class="step" data-rel-x="1500" data-rel-y="0" data-rotate-z="45">
+            <div id="Applications04" class="step skip" data-rel-x="1500" data-rel-y="0" data-rotate-z="45">
                 <h1>A new world of applications</h1>
                 <dl>
                     <dt>Aerial images semantic segmentation:</dt>
@@ -429,7 +445,7 @@
                 </dl>
             </div>
 
-            <div id="Applications05" class="step" data-rel-x="-1500" data-rel-y="1500" data-rotate-z="45">
+            <div id="Applications05" class="step skip" data-rel-x="-1500" data-rel-y="1500" data-rotate-z="45">
                 <h1>A new world of applications</h1>
                 <dl>
                     <dt>Domain adaptation</dt>
@@ -440,6 +456,17 @@
                         </a>
                     </dd>
                 </dl>
+            </div>
+
+            <div id="Applications06" class="step" data-rel-x="-1500" data-rel-y="1500" data-rotate-z="45">
+                <h1>Super-resolution</h1>
+                <img src="images/SRes.png" width="500"/>
+                <img src="images/SResCascade.png" width="500"/>
+                <center>
+                    <a href="https://arxiv.org/pdf/2104.07636.pdf">
+                        <cit>"Image Super-Resolution via Iterative Refinement", GoogleAI, 2021</cit>
+                    </a>
+                </center>
             </div>
 
             <div id="Text-to-images" class="step" data-rel-x="-1500" data-rel-y="1500" data-rotate-z="45">
@@ -493,9 +520,18 @@
                 <img src="images/CLIP.png" width="900"/>
             </div>
 
-            <div id="DALL-E2" class="step" data-rel-x="-60" data-rel-y="60" data-rotate-z="45" data-scale="0.1">
-                <h1>unCLIP</h1>
-                <h2>(DALL-E 2)</h2>
+            <div id="Transformers" class="step" data-rel-x="-50" data-rel-y="50" data-rotate-z="45" data-scale="0.1">
+                <h1>Encoders with Transformers</h1>
+                <img src="images/transformer.svg" width="900"/>
+                <center>
+                    <a href="https://arxiv.org/pdf/1706.03762.pdf">
+                        <cit>"Attention Is All You Need", GoogleAI, 2017</cit>
+                    </a>
+                </center>
+            </div>
+
+            <div id="DALL-E2" class="step" data-rel-x="-50" data-rel-y="50" data-rotate-z="45" data-scale="0.1">
+                <h1>unCLIP (DALL-E 2)</h1>
                 <img src="images/DALLE2.png" width="900"/>
                 $$
                     p(x|y) = p(x,z_i|y) = p(x|z_i,y) \; p(z_i|y) \\
@@ -503,7 +539,7 @@
                 $$
             </div>
 
-            <div id="Imagen" class="step" data-rel-x="-1640" data-rel-y="1140" data-rotate-z="45">
+            <div id="Imagen" class="step" data-rel-x="-1600" data-rel-y="1100" data-rotate-z="45">
                 <h1>Imagen</h1>
                 Google AI, 2022-May-23, Diffusion Model
                 <a href="https://imagen.research.google/paper.pdf" target="_blank">
@@ -520,9 +556,9 @@
                 <img src="images/Parti_overview.jpeg" width="900"/>
             </div>
 
-            <div id="Parti-results" class="step" data-rel-x="1500" data-rel-y="0" data-rotate-z="45">
+            <div id="Parti-scaling" class="step" data-rel-x="1500" data-rel-y="0" data-rotate-z="45">
                 <h1>Parti</h1>
-                <h2>Scaling up the model</h2>
+                <h2>Scaling up the model.. with >1B samples</h2>
                 <img src="images/Parti_outcome.png" width="900"/>
                 <did style="font-size: 100%">
                     A portrait photo of a kangaroo <br/>
