@@ -22,9 +22,7 @@
                 <h1>Agenda</h1>
                 <ul>
                     <li>Discriminative VS Generative models</li>
-                    <li>Generative approaches</li>
-                    <li>Performances</li>
-                    <li>Applications</li>
+                    <li>Generative approaches overview</li>
                     <li>Text-to-image generators</li>
                 </ul>
             </div>
@@ -145,7 +143,6 @@
                 $$\large
                     \mathcal{L}(x,e) = \mathcal{E}(x,e) + \mathcal{C}(x,e) + \beta\mathcal{D}(x,e)
                 $$
-                <issue>Slow, limited in token resolution</issue>
             </div>
 
             <div id="GAN" class="step" data-rel-x="220" data-rel-y="1280" data-rotate-z="135">
@@ -203,7 +200,7 @@
                 <issue>Not easy to train and bring to convergence</issue>
             </div>
 
-            <div id="NF" class="step" data-rel-x="-1060" data-rel-y="440" data-rotate-z="225">
+            <div id="NF" class="step skip" data-rel-x="-1060" data-rel-y="440" data-rotate-z="225">
                 <h1 style="margin: 0;">Normalizing Flows</h1>
                 <p style="margin: 0;">
                     <img src="images/x.svg" width="100" style="display: inline-block; margin: 0;"/>
@@ -488,7 +485,7 @@
                     <did>@DALL-E 2 Pics, Twitter</did>
                 </a>
                 <dl style="margin-bottom: 0;">
-                    <dt>DALL-E, OpenAI, 2021-Feb-24, Autoregressive Model, ~12B parameters</dt>
+                    <dt>DALL-E, OpenAI, 2021-Feb-24, Autoregressive, ~12B parameters</dt>
                     <dd>
                         <a href="https://arxiv.org/pdf/2102.12092.pdf" target="_blank">
                             <cit>"Zero-Shot Text-to-Image Generation"</cit>
@@ -510,7 +507,7 @@
                     </dd>
                 </dl>
                 <div style="text-align: right;">
-                    <a href="https://github.com/Yutong-Zhou-cv/Awesome-Text-to-Image#head-2022">
+                    <a href="https://github.com/Yutong-Zhou-cv/Awesome-Text-to-Image#head-2022" target="_blank">
                         ..and many many more..!
                     </a>
                 </div>
@@ -581,7 +578,7 @@
                 <a href="https://arxiv.org/abs/2206.10789" target="_blank">
                     <cit>"Scaling Autoregressive Models for Content-Rich Text-to-Image Generation"</cit>
                 </a>
-                <img src="images/Parti_overview.jpeg" width="700"/>
+                <img src="images/Parti_overview.jpeg" width="700" style="margin-top: 50px;"/>
                 <did>
                     ~20B parameters
                     <tab/>
@@ -589,8 +586,19 @@
                 </did>
             </div>
 
+            <div id="Parti-SISR" class="step" data-rel-x="1500" data-rel-y="0" data-rotate-z="45">
+                <h1>Parti: super-resolution</h1>
+                <img src="images/Parti_SISR.png" width="900"/>
+                <img src="images/pixel_shuffle.jpeg" width="600"/>
+                <center>
+                    WSDR: <a href="https://arxiv.org/pdf/1808.08718.pdf">
+                        <cit style="display: inline-block;">"Wide Activation for Efficient and Accurate Image Super-Resolution"</cit>
+                    </a>
+                </center>
+            </div>
+
             <div id="Parti-scaling" class="step" data-rel-x="1500" data-rel-y="0" data-rotate-z="45">
-                <h2>Parti</h2>
+                <h2>Parti: scaling</h2>
                 <img src="images/Parti_outcome_01.png" width="800"/>
                 <did style="font-size: 70%">
                     A portrait photo of a kangaroo 
@@ -605,25 +613,46 @@
                 </did>
             </div>
 
+            <div id="Parti-evaluation" class="step" data-rel-x="1500" data-rel-y="0" data-rotate-z="45">
+                <h1 style="margin-bottom: 0;">Parti: evaluation</h1>
+                <center style="display: flex;">
+                    <p style="flex: 1;">
+                        <dl style="margin-right: 10px;">
+                            <dh><dd style="margin: 0;">PartiPrompts</dd></dh>
+                            <dt>Animals</dt>
+                            <dd><rep>a Tyrannosaurus Rex; 7 dogs sitting around a poker table, two of which are turning away; a white rabbit in blue jogging clothes doubled over in pain while a turtle wearing a red tank top dashes confidently through the finish lin</rep></dd>
+                            <dt>People</dt>
+                            <dd><rep>the Beatles crossing Abbey road; a woman with long hair next to a luminescent bird; a tall man stooping down to enter a low red sports car; a politician wearing a soccer jersey and holding a volleyball while giving a speech on a stage</rep></dd>
+                            <dt>Perspective</dt>
+                            <dd><rep>the back of a violin; an extreme close-up view of a capybara sitting in a field; tall buildings seen through a window with rain on it; view from below of a tall white ladder with just one rung leaning up against a yellow brick wall</rep></dd>
+                            <dt>Quantity</dt>
+                            <dd><rep>an owl family; 7 dogs sitting around a poker table, two of which are turning away; a basketball game between a team of four cats and a team of three dogs</rep></dd>
+                        </dl>
+                    </p>
+                    <p style="flex: 1">
+                        Growing a cherry-tree
+                        <img src="images/Parti_cherry_tree.png" width="400"/>
+                    </p>
+                </center>
+            </div>
+
             <div id="Conclusions" class="step" data-rel-x="1500" data-rel-y="0" data-rotate-z="45">
                 <h1>Conclusions</h1>
                 <h2>Generative models</h2>
-                <center style="font-size: 150%;">
-                    Does the effectiveness worth their complexity?<br/><br/>
-                    They are rapidly becoming "human-like"...<br/>
-                    ...is this the start of a new era?<br/><br/>
-                    What about creative jobs like<br/> illustration, narrative.. development?
+                <center style="font-size: 130%; margin-top: 70px;">
+                    These models are rapidly becoming "human-like"...<br/>
+                    <br/>
+                    ...what about creative jobs like<br/> illustration, narrative.. development?
                 </center>
-                <center style="font-size: 500%; color: white;">
+                <center style="font-size: 500%; color: white; margin-top: 70px;">
                     Qs?
                 </center>
             </div>
 
             <div id="The-end" class="step end" data-x="15000" data-y="2000" data-scale="20">
                 <h1>Generative Deep Neural Models</h1>
-                <p><tab/></p>
-                <p><tab/></p>
-                <center style="font-size: 500%; color: white;">
+                <img src="images/punk_squirrel.jpg" width="400" style="margin: 50px auto;"/>
+                <center style="font-size: 300%; color: white;">
                     Let's have a "Parti"!
                 </center>
             </div>
