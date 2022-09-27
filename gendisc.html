@@ -97,7 +97,7 @@
                 $$
             </div>
 
-            <div id="VAE-detail" class="step" data-rel-x="300" data-rel-y="170" data-scale="0.1">
+            <div id="VAE-detail" class="step skip" data-rel-x="300" data-rel-y="170" data-scale="0.1">
                 <h1>Normally distributed latents</h1>
                 $$
                     \mathcal{L}(x,\hat{x}) =
@@ -251,7 +251,7 @@
             <div id="DDPM-detail" class="step" data-rel-x="200" data-rel-y="-500" data-rotate-z="315" data-scale="0.1">
                 <h1>Score-based generative models</h1>
                 $$\small
-                    x_t \leftarrow x_{t-1} + \alpha\nabla_x\log p(x_{t-1}) + \sqrt{2\alpha}z_t \qquad z_t\text{white noise}
+                    x_t \leftarrow x_{t+1} + \alpha\nabla_x\log p(x_{t+1}) + \sqrt{2\alpha}z_t \qquad z_t\text{white noise}
                 $$
                 <img src="images/hill_climbing.svg" width="700"/>
                 <did>Annealed Langevin dynamics for a $\sigma_i$ schedule</did>
@@ -266,7 +266,7 @@
                 <issue>High evaluation time</issue>
             </div>
 
-            <div id="DDPM-SDE" class="step" data-rel-x="170" data-rel-y="170" data-rotate-z="315" data-scale="0.1">
+            <div id="DDPM-SDE" class="step skip" data-rel-x="170" data-rel-y="170" data-rotate-z="315" data-scale="0.1">
                 <h1>Continuous DDPM using SDEs</h1>
                 $$
                     \large
@@ -586,7 +586,7 @@
                 </did>
             </div>
 
-            <div id="Parti-SISR" class="step" data-rel-x="1500" data-rel-y="0" data-rotate-z="45">
+            <div id="Parti-SISR" class="step skip" data-rel-x="1500" data-rel-y="0" data-rotate-z="45">
                 <h1>Parti: super-resolution</h1>
                 <img src="images/Parti_SISR.png" width="900"/>
                 <img src="images/pixel_shuffle.jpeg" width="600"/>
@@ -597,7 +597,7 @@
                 </center>
             </div>
 
-            <div id="Parti-scaling" class="step" data-rel-x="1500" data-rel-y="0" data-rotate-z="45">
+            <div id="Parti-scaling" class="step skip" data-rel-x="1500" data-rel-y="0" data-rotate-z="45">
                 <h2>Parti: scaling</h2>
                 <img src="images/Parti_outcome_01.png" width="800"/>
                 <did style="font-size: 70%">
@@ -613,7 +613,7 @@
                 </did>
             </div>
 
-            <div id="Parti-evaluation" class="step" data-rel-x="1500" data-rel-y="0" data-rotate-z="45">
+            <div id="Parti-evaluation" class="step skip" data-rel-x="1500" data-rel-y="0" data-rotate-z="45">
                 <h1 style="margin-bottom: 0;">Parti: evaluation</h1>
                 <center style="display: flex;">
                     <p style="flex: 1;">
@@ -649,7 +649,7 @@
                 </center>
             </div>
 
-            <div id="The-end" class="step end" data-x="15000" data-y="2000" data-scale="20">
+            <div id="The-end" class="step end skip" data-x="15000" data-y="2000" data-scale="20">
                 <h1>Generative Deep Neural Models</h1>
                 <img src="images/punk_squirrel.jpg" width="400" style="margin: 50px auto;"/>
                 <center style="font-size: 300%; color: white;">
