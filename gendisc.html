@@ -164,7 +164,7 @@
                 <a href="https://arxiv.org/pdf/2012.09841.pdf">
                     <cit>"Taming Transformers for High-Resolution Image Synthesis",
                          Patrick Esser, Robin Rombach, Bjorn Ommer, Jun 2021</cit>
-                <a/>
+                </a>
                 $$
                     \mathcal{Q} = \arg\min_{E,G,\mathcal{Z}}\max_D
                     \mathbb{E}\left[
@@ -633,6 +633,121 @@
                         Growing a cherry-tree
                         <img src="images/Parti_cherry_tree.png" width="400"/>
                     </p>
+                </center>
+            </div>
+            <div id="Stable-Diffusion" class="step" data-rel-x="1500" data-rel-y="-1500" data-rotate-z="45">
+                <h1>Stable Diffusion</h1>
+                <img src="images/StableDiffusion_overview.png" width="900" style="margin-top: 50px;"/>
+                <a href="https://arxiv.org/pdf/2112.10752.pdf" target="_blank">
+                    <cit>"High-Resolution Image Synthesis with Latent Diffusion Models"</cit>
+                </a>
+            </div>
+
+            <div id="Stable-Diffusion-autoencoder" class="step" data-rel-x="1500" data-rel-y="-1500" data-rotate-z="45">
+                <h1>SD: the autoencoder</h1>
+                <center>
+                    <img 
+                        src="images/StableDiffusion_overview.png" 
+                        style="display: inline-block; width: 250px; height: 600px; object-fit: cover; object-position: 1%;"/>
+                    <ul style="display: inline-block; width: 600px; text-align: left; vertical-align: top;">
+                        <li>VQ-GAN like:</li>
+                        <ul>
+                            <li>CNN-based</li>
+                            <li>Perceptual loss</li>
+                            <li>Patch-based adversarial loss</li>
+                        </ul>
+                        <li>Regularized latent space:</li>
+                        <ul>
+                            <li>$KL(\cdot,\mathcal{N})$ term with low weight (like in VAE)</li>
+                            <li>quantization, big vocabulary (like in VQ-GAN)</li>
+                        </ul>
+                        <li>
+                            $
+                                \mathcal{L}_A = \min_{\mathcal{E},\mathcal{D}}\max_{\psi} 
+                                                \mathcal{L}_{rec} + 
+                                                \mathcal{L}_{adv} + D_\psi +
+                                                \mathcal{L}_{reg}
+                            $
+                            <ul>
+                                <li>$\mathcal{L}_{rec}$: perceptual loss</li>
+                                <li>$\mathcal{L}_{adv} + D_\psi$: patch-based GAN</li>
+                                <li>$\mathcal{L}_{reg}$: $KL$ regularization term</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </center>
+            </div>
+
+            <div id="Stable-Diffusion-diffusion" class="step" data-rel-x="1500" data-rel-y="-1500" data-rotate-z="45">
+                <h1>SD: the diffusion</h1>
+                <center>
+                    <img 
+                        src="images/StableDiffusion_overview.png" 
+                        style="display: inline-block; width: 500px; height: 500px; object-fit: cover; object-position: 58%;"/>
+                    <ul style="display: inline-block; text-align: left; vertical-align: top; width: 350px;">
+                        <li>Many denoising steps</li>
+                        <li>Time-dependent U-Net</li>
+                        <li>Convolutional layers</li>
+                        <li>
+                            Cross-attention conditioning:
+                            $$
+                                \scriptsize \text{Att}(Q,K,V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d}}\right)\cdot V \\
+                                \scriptsize Q = W_Q^i \cdot \varphi_i(z_t) \\
+                                \scriptsize K = W_K^i \cdot \tau_\theta(y) \\
+                                \scriptsize V = W_V^i \cdot \tau_\theta(y)
+                            $$
+                        </li>
+                    </ul>
+                </center>
+                $$
+                    \mathcal{L}_{LDM} =
+                        \mathbb{E}_{\mathcal{E}(x),\epsilon\sim\mathcal{N}(0,1),t}
+                        \left[\left|
+                            \epsilon - \epsilon_\theta(z_t,t,\tau_\theta(y))
+                        \right|^2_2\right]
+                $$
+            </div>
+
+            <div id="Stable-Diffusion-conditioning" class="step" data-rel-x="1500" data-rel-y="-1500" data-rotate-z="45">
+                <h1>SD: the conditioning</h1>
+                <h2>Text-to-image case</h2>
+                <center>
+                    <ul style="display: inline-block; width: 550px; text-align: left; vertical-align: top;">
+                        <li>Text tokenization</li>
+                        <li>
+                            Transformer with self-attention:
+                            $
+                                \scriptsize\zeta\leftarrow\text{TokEmb}(y) + \text{PosEmb}(y) \\
+                                \scriptsize\text{for }i=1,\cdots,N: \\
+                                \scriptsize\quad\zeta_1\leftarrow\text{LayerNorm}(\zeta) \\
+                                \scriptsize\quad\zeta_2\leftarrow\text{MultiHeadSelfAttention}(\zeta_1)+\zeta \\
+                                \scriptsize\quad\zeta_3\leftarrow\text{LayerNorm}(\zeta_2) \\
+                                \scriptsize\quad\zeta\leftarrow\text{MLP}(\zeta_3) + \zeta_2 \\
+                                \scriptsize\zeta\leftarrow\text{LayerNorm}(\zeta)
+                            $
+                        </li>
+                        <li>+ cross-attention based implementation</li>
+                    </ul>
+                    <img 
+                        src="images/StableDiffusion_overview.png" 
+                        style="display: inline-block; width: 220px; height: 550px; object-fit: cover; object-position: 100%;"/>
+                </center>
+            </div>
+
+            <div id="Stable-Diffusion-models" class="step" data-rel-x="1500" data-rel-y="-1500" data-rotate-z="45">
+                <h1>SD: models</h1>
+                <img src="images/StableDiffusion_size.png" width="900"/>
+                <br/>
+                <center>
+                    <a href="https://stability.ai/blog/stable-diffusion-public-release">
+                        Official home
+                    </a><tab/>
+                    <a href="https://github.com/CompVis/stable-diffusion">
+                        Code
+                    </a><tab/>
+                    <a href="https://creator.nightcafe.studio/stable-diffusion-image-generator">
+                        Online generator
+                    </a>
                 </center>
             </div>
 
